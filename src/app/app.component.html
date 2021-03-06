@@ -1,0 +1,17 @@
+<h1>Should I use Northern Ferocity (simulation)</h1>
+<div [formGroup]="panicForm">
+  <div>
+    <label>Morale of target (including modifiers) </label><input  formControlName="morale" placeholder="Morale of target" type="number" min="0" max="12">
+  </div>
+  <div>
+    <label><input  formControlName="panicked" type="checkbox"> Panicked </label>
+  </div>
+  <div>
+    <label>Extra Wounds per failed test </label><input  formControlName="extraDamagePerFail" placeholder="Extra wounds per fail" type="number" min="0" max="10">
+  </div>
+
+</div>
+<hr>
+<h3>{{res$ | async | number:'1.0-3'}} % probability to fail</h3>
+
+<h2>{{dmg$ | async | number:'1.0-3' }} average Wounds</h2>
