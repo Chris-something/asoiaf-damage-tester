@@ -1,19 +1,45 @@
 html,
 * {
   font-family: "Palatino", serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 .app {
+  margin: 40px;
   padding: 20px;
+  min-height: calc(100vh - 82px);
   color: #FFF;
   text-align: center;
+  border: 1px solid rgba(255,255,255,.5);
+  background: rgba(0,15,22, .5);
+  /*background: linear-gradient(182deg, rgba(38, 2, 2, 0.2), rgba(9, 22, 59, .9));*/
+  /*box-shadow: rgba(0,0,0,.5) 0 0 20px 26px;*/
 
 }
 
+.app-title-wrapper {
+  perspective: 500px;
+}
+
 .app__title {
-  font-size: 2em;
+  /*text-shadow: rgba(0,0,0,.5) 0 8px 6px;*/
+  /*transform: rotate3d(0.9, 0, 0, 19deg);*/
+  text-shadow: rgba(0,0,0,.5) 0 8px 6px;
+  text-outline: #FFFFFF 1px;
+  transform-origin: 50% 100%;
+  font-size: 5vw;
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: .05em;
+}
+
+.app__title-subtitle {
+  font-size: .5em;
 }
 
 path {
@@ -30,7 +56,10 @@ label {
 }
 
 .box {
-  background: rgba(0,0,0, .5);
+  max-width: 600px;
+  border-radius: 20px;
+  margin: 0 auto 20px;
+  background: rgba(0,0,0, .3);
+  box-shadow: rgba(0,0,0,.3) 0 0 20px 26px;
   padding: 20px;
-  margin-bottom: 20px;
 }

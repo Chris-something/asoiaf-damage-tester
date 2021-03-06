@@ -1,7 +1,9 @@
 <div class="app">
-  <h1 class="app__title">The Panic-Tester</h1>
-
-
+  <div class="app-title-wrapper">
+    <h1 class="app__title">The Panic-Tester
+      <br><span class="app__title-subtitle">For ASOIAF-TMG</span>
+    </h1>
+  </div>
   <div class="box" [formGroup]="panicForm">
     <h4>Morale of target (including modifiers)</h4>
     <mat-button-toggle-group formControlName="morale" aria-label="Morale of target (including modifiers)">
