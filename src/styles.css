@@ -1,2 +1,7 @@
 /* Add application styles & imports to this file! */
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+    background-image: url('/assets/stefan-kopinski-stark-swordsmen.jpg');
+    background-size: cover;
+}
