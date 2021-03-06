@@ -13,6 +13,8 @@ import {
   MatSlideToggle,
   MatSlideToggleModule
 } from "@angular/material/slide-toggle";
+import { MatCardModule } from "@angular/material/card";
+import { MatDividerModule } from "@angular/material/divider";
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import {
     MatFormFieldModule,
     MatButtonToggleModule,
     MatInputModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCardModule,
+    MatDividerModule
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent]

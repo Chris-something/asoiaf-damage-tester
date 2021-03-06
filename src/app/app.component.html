@@ -1,6 +1,5 @@
 <h1>Should I use Northern Ferocity (simulation)</h1>
-<div [formGroup]="panicForm">
-
+<div class="box" [formGroup]="panicForm">
   <h4>Morale of target (including modifiers)</h4>
   <mat-button-toggle-group formControlName="morale" aria-label="Morale of target (including modifiers)">
     <mat-button-toggle [value]="2">2</mat-button-toggle>
@@ -36,8 +35,14 @@
 
   </div>
 
-</div>
-<hr>
-<h3>{{res$ | async | number:'1.0-3'}} % probability the target fails the test</h3>
 
-<h2>{{dmg$ | async | number:'1.0-3' }} average wounds caused on the target</h2>
+
+</div>
+
+<div class="box">
+
+  <h3>{{res$ | async | number:'1.0-3'}} % probability the target fails the test</h3>
+
+  <h2>{{dmg$ | async | number:'1.0-3' }} average wounds caused on the target</h2>
+
+</div>

@@ -8,3 +8,9 @@ label {
   width: 300px;
   display: inline-block;
 }
+
+.box {
+  background: #f3f3f3;
+  padding: 20px;
+  margin-bottom: 20px;
+}
