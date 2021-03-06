@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         return this.iterationArray.map(c => {
           let res1 = this.d(6);
           let res2 = this.d(6);
-          if (fullForm.panicked) {
+          if (fullForm.panicked && res1 + res2 >= fullForm.morale) {
             res1 = res1 > fullForm.morale / 2 ? this.d(6) : res1;
             res2 = res2 > fullForm.morale / 2 ? this.d(6) : res2;
           }
