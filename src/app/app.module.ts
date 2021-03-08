@@ -12,6 +12,10 @@ import {
 } from "@angular/material/slide-toggle";
 import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
+import { SequenceComponent } from './sequence/sequence.component';
+import { DefenderSettingsComponent } from './defender-settings/defender-settings.component';
+import {AttackerSettingsComponent} from "./attacker-settings/attacker-settings.component";
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   imports: [
@@ -26,7 +30,7 @@ import { MatDividerModule } from "@angular/material/divider";
     MatCardModule,
     MatDividerModule
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, SequenceComponent, DefenderSettingsComponent, AttackerSettingsComponent, ResultComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

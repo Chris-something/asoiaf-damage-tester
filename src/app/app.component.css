@@ -14,7 +14,7 @@ html, body {
   padding: 20px;
   min-height: calc(100vh - 82px);
   color: #FFF;
-  text-align: center;
+  /*text-align: center;*/
   border: 1px solid rgba(255,255,255,.5);
   background: rgba(0,15,22, .5);
   /*background: linear-gradient(182deg, rgba(38, 2, 2, 0.2), rgba(9, 22, 59, .9));*/
@@ -42,24 +42,10 @@ html, body {
   font-size: .5em;
 }
 
-path {
-  fill: transparent;
-}
-
-text {
-  fill: #FF9800;
-}
-
-label {
-  width: 300px;
-  display: inline-block;
-}
-
-.box {
-  max-width: 600px;
-  border-radius: 20px;
-  margin: 0 auto 20px;
-  background: rgba(0,0,0, .3);
-  box-shadow: rgba(0,0,0,.3) 0 0 20px 26px;
+.p {
   padding: 20px;
+}
+
+.u-mb {
+  margin-bottom: 20px;
 }

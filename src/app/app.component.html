@@ -1,54 +1,39 @@
-<div class="app">
+<div class="app" style="text-align: center">
   <div class="app-title-wrapper">
-    <h1 class="app__title">The Panic-Tester
+    <h1 class="app__title">Compare attacks
       <br><span class="app__title-subtitle">For ASOIAF-TMG</span>
     </h1>
   </div>
-  <div class="box" [formGroup]="panicForm">
-    <h4>Morale of target (including modifiers)</h4>
-    <mat-button-toggle-group formControlName="morale" aria-label="Morale of target (including modifiers)">
-      <mat-button-toggle [value]="2">2</mat-button-toggle>
-      <mat-button-toggle [value]="3">3</mat-button-toggle>
-      <mat-button-toggle [value]="4">4</mat-button-toggle>
-      <mat-button-toggle [value]="5">5</mat-button-toggle>
-      <mat-button-toggle [value]="6">6</mat-button-toggle>
-      <mat-button-toggle [value]="7">7</mat-button-toggle>
-      <mat-button-toggle [value]="8">8</mat-button-toggle>
-      <mat-button-toggle [value]="9">9</mat-button-toggle>
-      <mat-button-toggle [value]="10">10</mat-button-toggle>
-      <mat-button-toggle [value]="11">11</mat-button-toggle>
-      <mat-button-toggle [value]="12">12</mat-button-toggle>
-    </mat-button-toggle-group>
-
-    <div>
-      <h4>Panic token</h4>
-      <mat-slide-toggle formControlName="panicked">Panicked</mat-slide-toggle>
-    </div>
-
-    <div>
-
-      <h4>Extra Wounds per failed test</h4>
-      <mat-button-toggle-group formControlName="extraDamagePerFail" aria-label="Extra Wounds per failed test">
-        <mat-button-toggle [value]="0">0</mat-button-toggle>
-        <mat-button-toggle [value]="1">1</mat-button-toggle>
-        <mat-button-toggle [value]="2">2</mat-button-toggle>
-        <mat-button-toggle [value]="3">3</mat-button-toggle>
-        <mat-button-toggle [value]="4">4</mat-button-toggle>
-        <mat-button-toggle [value]="5">5</mat-button-toggle>
-        <mat-button-toggle [value]="6">6</mat-button-toggle>
-      </mat-button-toggle-group>
-
-    </div>
 
 
-
+  <div class="p">
+    <app-defender-settings [defenderSubject$]="defenderSubject$"></app-defender-settings>
   </div>
 
-  <div class="box">
+  <hr>
 
-    <h3>{{res$ | async | number:'1.0-3'}} % probability the target fails the test</h3>
+  <div>
+    <div style="display: inline-block; width: 50%; border-right: 1px solid">
+      <div class="p">
+        <h2>Attack Option 1</h2>
+        <app-attacker-settings [attackerSubject$]="attackerSubject1$"></app-attacker-settings>
+        <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
+          <app-result  [defender$]="defenderSubject$" [attacker$]="attackerSubject1$"></app-result>
+        </div>
+      </div>
 
-    <h2>{{dmg$ | async | number:'1.0-3' }} average wounds caused on the target</h2>
-
+    </div>
+    <div style="display: inline-block; width: 50%">
+      <div class="p">
+        <h2>Attack Option 2</h2>
+        <app-attacker-settings [attackerSubject$]="attackerSubject2$"></app-attacker-settings>
+        <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
+          <app-result [defender$]="defenderSubject$" [attacker$]="attackerSubject2$"></app-result>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
+
+

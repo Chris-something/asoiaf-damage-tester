@@ -35,6 +35,66 @@
     },
 
     /***/
+    "45Wa":
+    /*!*******************************************************************!*\
+      !*** ./src/app/attacker-settings/attacker-settings.component.css ***!
+      \*******************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function Wa(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhdHRhY2tlci1zZXR0aW5ncy5jb21wb25lbnQuY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "8LaI":
+    /*!**********************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/defender-settings/defender-settings.component.html ***!
+      \**********************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function LaI(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"box\" [formGroup]=\"defenderForm\">\n    <div class=\"u-mb\">\n    <h4>Morale of defender</h4>\n    <mat-button-toggle-group formControlName=\"morale\" aria-label=\"Morale of defender\">\n        <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n        <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n        <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n        <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n        <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n        <mat-button-toggle [value]=\"7\">7</mat-button-toggle>\n        <mat-button-toggle [value]=\"8\">8</mat-button-toggle>\n        <mat-button-toggle [value]=\"9\">9</mat-button-toggle>\n        <mat-button-toggle [value]=\"10\">10</mat-button-toggle>\n        <mat-button-toggle [value]=\"11\">11</mat-button-toggle>\n        <mat-button-toggle [value]=\"12\">12</mat-button-toggle>\n    </mat-button-toggle-group>\n    </div>\n    <div class=\"u-mb\">\n        <h4>Def-Value of defender</h4>\n        <mat-button-toggle-group formControlName=\"def\" aria-label=\"Def-Value of defender\">\n            <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n            <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n            <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n            <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n            <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n        </mat-button-toggle-group>\n    </div>\n    <div>\n        <mat-slide-toggle formControlName=\"panicked\">Panicked</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;\n        <mat-slide-toggle formControlName=\"vulnerable\">Vulnerable</mat-slide-toggle>\n    </div>\n</div>\n";
+      /***/
+    },
+
+    /***/
+    "8tzo":
+    /*!**********************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/attacker-settings/attacker-settings.component.html ***!
+      \**********************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function tzo(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"box\" [formGroup]=\"attackerForm\">\n    <h4>Dice</h4>\n    <mat-button-toggle-group formControlName=\"diceCount\" aria-label=\"Morale of defender\">\n        <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n        <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n        <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n        <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n        <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n        <mat-button-toggle [value]=\"7\">7</mat-button-toggle>\n        <mat-button-toggle [value]=\"8\">8</mat-button-toggle>\n        <mat-button-toggle [value]=\"9\">9</mat-button-toggle>\n    </mat-button-toggle-group>\n\n    <div>\n        <h4>To Hit</h4>\n        <mat-button-toggle-group formControlName=\"toHit\" aria-label=\"Def-Value of defender\">\n            <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n            <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n            <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n            <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n            <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n        </mat-button-toggle-group>\n    </div>\n\n    <div class=\"u-mb\">\n        <h4>Extra damage on failed panic-test</h4>\n        <mat-button-toggle-group formControlName=\"extradDamageOnFailedPanictest\" >\n            <mat-button-toggle [value]=\"0\">0</mat-button-toggle>\n            <mat-button-toggle [value]=\"1\">1</mat-button-toggle>\n            <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n            <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n            <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n        </mat-button-toggle-group>\n    </div>\n\n\n    <div class=\"u-mb\">\n        <mat-slide-toggle formControlName=\"reroll\">Reroll</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;\n    </div>\n\n    <div class=\"u-mb\">\n        <mat-slide-toggle formControlName=\"weakened\">Weakened</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;\n    </div>\n\n    <div>\n        <mat-slide-toggle formControlName=\"sundering\">Sundering</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;\n        <mat-slide-toggle formControlName=\"critBlow\">Critical Blow</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;\n        <mat-slide-toggle formControlName=\"vicious\">Vicious</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;\n        <mat-slide-toggle formControlName=\"precision\">precision</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;\n    </div>\n</div>\n";
+      /***/
+    },
+
+    /***/
     "A3xY":
     /*!***********************************!*\
       !*** ./src/app/app.component.css ***!
@@ -50,7 +110,47 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "html,\n* {\n  font-family: \"Palatino\", serif;\n  box-sizing: border-box;\n}\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n}\n\n.app {\n  margin: 40px;\n  padding: 20px;\n  min-height: calc(100vh - 82px);\n  color: #FFF;\n  text-align: center;\n  border: 1px solid rgba(255,255,255,.5);\n  background: rgba(0,15,22, .5);\n  /*background: linear-gradient(182deg, rgba(38, 2, 2, 0.2), rgba(9, 22, 59, .9));*/\n  /*box-shadow: rgba(0,0,0,.5) 0 0 20px 26px;*/\n\n}\n\n.app-title-wrapper {\n  perspective: 500px;\n}\n\n.app__title {\n  /*text-shadow: rgba(0,0,0,.5) 0 8px 6px;*/\n  /*transform: rotate3d(0.9, 0, 0, 19deg);*/\n  text-shadow: rgba(0,0,0,.5) 0 8px 6px;\n  text-outline: #FFFFFF 1px;\n  transform-origin: 50% 100%;\n  font-size: 5vw;\n  text-transform: uppercase;\n  text-align: center;\n  letter-spacing: .05em;\n}\n\n.app__title-subtitle {\n  font-size: .5em;\n}\n\npath {\n  fill: transparent;\n}\n\ntext {\n  fill: #FF9800;\n}\n\nlabel {\n  width: 300px;\n  display: inline-block;\n}\n\n.box {\n  max-width: 600px;\n  border-radius: 20px;\n  margin: 0 auto 20px;\n  background: rgba(0,0,0, .3);\n  box-shadow: rgba(0,0,0,.3) 0 0 20px 26px;\n  padding: 20px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVFLDhCQUE4QjtFQUM5QixzQkFBc0I7QUFDeEI7O0FBRUE7RUFDRSxTQUFTO0VBQ1QsVUFBVTtBQUNaOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYiw4QkFBOEI7RUFDOUIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixzQ0FBc0M7RUFDdEMsNkJBQTZCO0VBQzdCLGlGQUFpRjtFQUNqRiw0Q0FBNEM7O0FBRTlDOztBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UseUNBQXlDO0VBQ3pDLHlDQUF5QztFQUN6QyxxQ0FBcUM7RUFDckMseUJBQXlCO0VBQ3pCLDBCQUEwQjtFQUMxQixjQUFjO0VBQ2QseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsWUFBWTtFQUNaLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsbUJBQW1CO0VBQ25CLDJCQUEyQjtFQUMzQix3Q0FBd0M7RUFDeEMsYUFBYTtBQUNmIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaHRtbCxcbioge1xuICBmb250LWZhbWlseTogXCJQYWxhdGlub1wiLCBzZXJpZjtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn1cblxuaHRtbCwgYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgcGFkZGluZzogMDtcbn1cblxuLmFwcCB7XG4gIG1hcmdpbjogNDBweDtcbiAgcGFkZGluZzogMjBweDtcbiAgbWluLWhlaWdodDogY2FsYygxMDB2aCAtIDgycHgpO1xuICBjb2xvcjogI0ZGRjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDI1NSwyNTUsMjU1LC41KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLDE1LDIyLCAuNSk7XG4gIC8qYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDE4MmRlZywgcmdiYSgzOCwgMiwgMiwgMC4yKSwgcmdiYSg5LCAyMiwgNTksIC45KSk7Ki9cbiAgLypib3gtc2hhZG93OiByZ2JhKDAsMCwwLC41KSAwIDAgMjBweCAyNnB4OyovXG5cbn1cblxuLmFwcC10aXRsZS13cmFwcGVyIHtcbiAgcGVyc3BlY3RpdmU6IDUwMHB4O1xufVxuXG4uYXBwX190aXRsZSB7XG4gIC8qdGV4dC1zaGFkb3c6IHJnYmEoMCwwLDAsLjUpIDAgOHB4IDZweDsqL1xuICAvKnRyYW5zZm9ybTogcm90YXRlM2QoMC45LCAwLCAwLCAxOWRlZyk7Ki9cbiAgdGV4dC1zaGFkb3c6IHJnYmEoMCwwLDAsLjUpIDAgOHB4IDZweDtcbiAgdGV4dC1vdXRsaW5lOiAjRkZGRkZGIDFweDtcbiAgdHJhbnNmb3JtLW9yaWdpbjogNTAlIDEwMCU7XG4gIGZvbnQtc2l6ZTogNXZ3O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGxldHRlci1zcGFjaW5nOiAuMDVlbTtcbn1cblxuLmFwcF9fdGl0bGUtc3VidGl0bGUge1xuICBmb250LXNpemU6IC41ZW07XG59XG5cbnBhdGgge1xuICBmaWxsOiB0cmFuc3BhcmVudDtcbn1cblxudGV4dCB7XG4gIGZpbGw6ICNGRjk4MDA7XG59XG5cbmxhYmVsIHtcbiAgd2lkdGg6IDMwMHB4O1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5cbi5ib3gge1xuICBtYXgtd2lkdGg6IDYwMHB4O1xuICBib3JkZXItcmFkaXVzOiAyMHB4O1xuICBtYXJnaW46IDAgYXV0byAyMHB4O1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsMCwwLCAuMyk7XG4gIGJveC1zaGFkb3c6IHJnYmEoMCwwLDAsLjMpIDAgMCAyMHB4IDI2cHg7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG4iXX0= */";
+      __webpack_exports__["default"] = "html,\n* {\n  font-family: \"Palatino\", serif;\n  box-sizing: border-box;\n}\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n}\n\n.app {\n  margin: 40px;\n  padding: 20px;\n  min-height: calc(100vh - 82px);\n  color: #FFF;\n  /*text-align: center;*/\n  border: 1px solid rgba(255,255,255,.5);\n  background: rgba(0,15,22, .5);\n  /*background: linear-gradient(182deg, rgba(38, 2, 2, 0.2), rgba(9, 22, 59, .9));*/\n  /*box-shadow: rgba(0,0,0,.5) 0 0 20px 26px;*/\n\n}\n\n.app-title-wrapper {\n  perspective: 500px;\n}\n\n.app__title {\n  /*text-shadow: rgba(0,0,0,.5) 0 8px 6px;*/\n  /*transform: rotate3d(0.9, 0, 0, 19deg);*/\n  text-shadow: rgba(0,0,0,.5) 0 8px 6px;\n  text-outline: #FFFFFF 1px;\n  transform-origin: 50% 100%;\n  font-size: 5vw;\n  text-transform: uppercase;\n  text-align: center;\n  letter-spacing: .05em;\n}\n\n.app__title-subtitle {\n  font-size: .5em;\n}\n\n.p {\n  padding: 20px;\n}\n\n.u-mb {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVFLDhCQUE4QjtFQUM5QixzQkFBc0I7QUFDeEI7O0FBRUE7RUFDRSxTQUFTO0VBQ1QsVUFBVTtBQUNaOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYiw4QkFBOEI7RUFDOUIsV0FBVztFQUNYLHNCQUFzQjtFQUN0QixzQ0FBc0M7RUFDdEMsNkJBQTZCO0VBQzdCLGlGQUFpRjtFQUNqRiw0Q0FBNEM7O0FBRTlDOztBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UseUNBQXlDO0VBQ3pDLHlDQUF5QztFQUN6QyxxQ0FBcUM7RUFDckMseUJBQXlCO0VBQ3pCLDBCQUEwQjtFQUMxQixjQUFjO0VBQ2QseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsbUJBQW1CO0FBQ3JCIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaHRtbCxcbioge1xuICBmb250LWZhbWlseTogXCJQYWxhdGlub1wiLCBzZXJpZjtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn1cblxuaHRtbCwgYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgcGFkZGluZzogMDtcbn1cblxuLmFwcCB7XG4gIG1hcmdpbjogNDBweDtcbiAgcGFkZGluZzogMjBweDtcbiAgbWluLWhlaWdodDogY2FsYygxMDB2aCAtIDgycHgpO1xuICBjb2xvcjogI0ZGRjtcbiAgLyp0ZXh0LWFsaWduOiBjZW50ZXI7Ki9cbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwuNSk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwxNSwyMiwgLjUpO1xuICAvKmJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxODJkZWcsIHJnYmEoMzgsIDIsIDIsIDAuMiksIHJnYmEoOSwgMjIsIDU5LCAuOSkpOyovXG4gIC8qYm94LXNoYWRvdzogcmdiYSgwLDAsMCwuNSkgMCAwIDIwcHggMjZweDsqL1xuXG59XG5cbi5hcHAtdGl0bGUtd3JhcHBlciB7XG4gIHBlcnNwZWN0aXZlOiA1MDBweDtcbn1cblxuLmFwcF9fdGl0bGUge1xuICAvKnRleHQtc2hhZG93OiByZ2JhKDAsMCwwLC41KSAwIDhweCA2cHg7Ki9cbiAgLyp0cmFuc2Zvcm06IHJvdGF0ZTNkKDAuOSwgMCwgMCwgMTlkZWcpOyovXG4gIHRleHQtc2hhZG93OiByZ2JhKDAsMCwwLC41KSAwIDhweCA2cHg7XG4gIHRleHQtb3V0bGluZTogI0ZGRkZGRiAxcHg7XG4gIHRyYW5zZm9ybS1vcmlnaW46IDUwJSAxMDAlO1xuICBmb250LXNpemU6IDV2dztcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBsZXR0ZXItc3BhY2luZzogLjA1ZW07XG59XG5cbi5hcHBfX3RpdGxlLXN1YnRpdGxlIHtcbiAgZm9udC1zaXplOiAuNWVtO1xufVxuXG4ucCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi51LW1iIHtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn0iXX0= */";
+      /***/
+    },
+
+    /***/
+    "JSeB":
+    /*!*************************************************!*\
+      !*** ./src/app/sequence/sequence.component.css ***!
+      \*************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function JSeB(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n\nlabel {\n    width: 300px;\n    display: inline-block;\n}\n\n.box {\n    max-width: 600px;\n    border-radius: 20px;\n    margin: 0 auto 20px;\n    background: rgba(0,0,0, .3);\n    box-shadow: rgba(0,0,0,.3) 0 0 20px 26px;\n    padding: 20px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlcXVlbmNlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQTtJQUNJLFlBQVk7SUFDWixxQkFBcUI7QUFDekI7O0FBRUE7SUFDSSxnQkFBZ0I7SUFDaEIsbUJBQW1CO0lBQ25CLG1CQUFtQjtJQUNuQiwyQkFBMkI7SUFDM0Isd0NBQXdDO0lBQ3hDLGFBQWE7QUFDakIiLCJmaWxlIjoic2VxdWVuY2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuXG5sYWJlbCB7XG4gICAgd2lkdGg6IDMwMHB4O1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cblxuLmJveCB7XG4gICAgbWF4LXdpZHRoOiA2MDBweDtcbiAgICBib3JkZXItcmFkaXVzOiAyMHB4O1xuICAgIG1hcmdpbjogMCBhdXRvIDIwcHg7XG4gICAgYmFja2dyb3VuZDogcmdiYSgwLDAsMCwgLjMpO1xuICAgIGJveC1zaGFkb3c6IHJnYmEoMCwwLDAsLjMpIDAgMCAyMHB4IDI2cHg7XG4gICAgcGFkZGluZzogMjBweDtcbn1cbiJdfQ== */";
+      /***/
+    },
+
+    /***/
+    "PEj0":
+    /*!************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/result/result.component.html ***!
+      \************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function PEj0(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"result\" *ngIf=\"wounds$\">\n    <h1>Avg. Wounds after {{amountOfIterations | number:'1.0-2' }} Fights: {{wounds$ | async | number:'1.0-2'}}</h1>\n</div>\n\n";
       /***/
     },
 
@@ -100,94 +200,32 @@
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @angular/forms */
-      "3Pt+");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! rxjs */
       "qCKp");
-      /* harmony import */
-
-
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! rxjs/operators */
-      "kU1M");
 
       var AppComponent = /*#__PURE__*/function () {
         function AppComponent() {
-          var _this = this;
-
           _classCallCheck(this, AppComponent);
 
-          this.morale = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](6);
-          this.extraDamagePerFail = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](0);
-          this.panicked = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
-          this.panicForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
-            morale: this.morale,
-            panicked: this.panicked,
-            extraDamagePerFail: this.extraDamagePerFail
-          });
-          this.amountOfIterations = 100000;
-          this.iterationArray = Array.from(Array(this.amountOfIterations).keys());
-          this.full$ = this.panicForm.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(this.panicForm.value));
-          this.resRough$ = this.full$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (fullForm) {
-            return _this.iterationArray.map(function (c) {
-              var res1 = _this.d(6);
-
-              var res2 = _this.d(6);
-
-              if (fullForm.panicked && res1 + res2 >= fullForm.morale) {
-                res1 = res1 > fullForm.morale / 2 ? _this.d(6) : res1;
-                res2 = res2 > fullForm.morale / 2 ? _this.d(6) : res2;
-              }
-
-              return res1 + res2 < fullForm.morale;
-            });
-          }));
-          this.res$ = this.res();
-          this.dmg$ = this.dmg();
-          this.dmgAvg = 2;
-          this.dmgAvgPanicked = 7 / 3;
+          this.attackerSubject1$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](null);
+          this.attackerSubject2$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](null);
+          this.defenderSubject$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](null);
         }
 
         _createClass(AppComponent, [{
-          key: "dmg",
-          value: function dmg() {
-            var _this2 = this;
-
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["combineLatest"])([this.resRough$, this.full$]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (_ref) {
-              var _ref2 = _slicedToArray(_ref, 2),
-                  results = _ref2[0],
-                  form = _ref2[1];
-
-              var successes = results.filter(function (r) {
-                return r;
-              }).length;
-              var damagePerFail = (form.panicked ? _this2.dmgAvgPanicked : _this2.dmgAvg) + form.extraDamagePerFail;
-              return successes * damagePerFail / _this2.amountOfIterations;
-            }));
-          }
-        }, {
-          key: "res",
-          value: function res() {
-            return this.resRough$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (resArray) {
-              var successesCount = resArray.filter(function (r) {
-                return r;
-              }).length;
-              return successesCount * 100 / resArray.length;
-            }));
-          }
-        }, {
-          key: "d",
-          value: function d(sides) {
-            return 1 + Math.floor(Math.random() * sides);
-          }
-        }, {
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            this.defenderSubject$.subscribe(function (v) {
+              return console.log('defenderSubject$', v);
+            });
+            this.attackerSubject1$.subscribe(function (v) {
+              return console.log('attackerSubject$', v);
+            });
+            this.attackerSubject2$.subscribe(function (v) {
+              return console.log('attackerSubject$', v);
+            });
+          }
         }]);
 
         return AppComponent;
@@ -196,6 +234,7 @@
       AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: "my-app",
         template: _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewEncapsulation"].None,
         styles: [_app_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
       })], AppComponent);
       /***/
@@ -217,7 +256,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"app\">\n  <div class=\"app-title-wrapper\">\n    <h1 class=\"app__title\">The Panic-Tester\n      <br><span class=\"app__title-subtitle\">For ASOIAF-TMG</span>\n    </h1>\n  </div>\n  <div class=\"box\" [formGroup]=\"panicForm\">\n    <h4>Morale of target (including modifiers)</h4>\n    <mat-button-toggle-group formControlName=\"morale\" aria-label=\"Morale of target (including modifiers)\">\n      <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n      <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n      <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n      <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n      <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n      <mat-button-toggle [value]=\"7\">7</mat-button-toggle>\n      <mat-button-toggle [value]=\"8\">8</mat-button-toggle>\n      <mat-button-toggle [value]=\"9\">9</mat-button-toggle>\n      <mat-button-toggle [value]=\"10\">10</mat-button-toggle>\n      <mat-button-toggle [value]=\"11\">11</mat-button-toggle>\n      <mat-button-toggle [value]=\"12\">12</mat-button-toggle>\n    </mat-button-toggle-group>\n\n    <div>\n      <h4>Panic token</h4>\n      <mat-slide-toggle formControlName=\"panicked\">Panicked</mat-slide-toggle>\n    </div>\n\n    <div>\n\n      <h4>Extra Wounds per failed test</h4>\n      <mat-button-toggle-group formControlName=\"extraDamagePerFail\" aria-label=\"Extra Wounds per failed test\">\n        <mat-button-toggle [value]=\"0\">0</mat-button-toggle>\n        <mat-button-toggle [value]=\"1\">1</mat-button-toggle>\n        <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n        <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n        <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n        <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n        <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n      </mat-button-toggle-group>\n\n    </div>\n\n\n\n  </div>\n\n  <div class=\"box\">\n\n    <h3>{{res$ | async | number:'1.0-3'}} % probability the target fails the test</h3>\n\n    <h2>{{dmg$ | async | number:'1.0-3' }} average wounds caused on the target</h2>\n\n  </div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"app\" style=\"text-align: center\">\n  <div class=\"app-title-wrapper\">\n    <h1 class=\"app__title\">Compare attacks\n      <br><span class=\"app__title-subtitle\">For ASOIAF-TMG</span>\n    </h1>\n  </div>\n\n\n  <div class=\"p\">\n    <app-defender-settings [defenderSubject$]=\"defenderSubject$\"></app-defender-settings>\n  </div>\n\n  <hr>\n\n  <div>\n    <div style=\"display: inline-block; width: 50%; border-right: 1px solid\">\n      <div class=\"p\">\n        <h2>Attack Option 1</h2>\n        <app-attacker-settings [attackerSubject$]=\"attackerSubject1$\"></app-attacker-settings>\n        <div *ngIf=\"defenderSubject$.getValue() && attackerSubject1$.getValue()\">\n          <app-result  [defender$]=\"defenderSubject$\" [attacker$]=\"attackerSubject1$\"></app-result>\n        </div>\n      </div>\n\n    </div>\n    <div style=\"display: inline-block; width: 50%\">\n      <div class=\"p\">\n        <h2>Attack Option 2</h2>\n        <app-attacker-settings [attackerSubject$]=\"attackerSubject2$\"></app-attacker-settings>\n        <div *ngIf=\"defenderSubject$.getValue() && attackerSubject1$.getValue()\">\n          <app-result [defender$]=\"defenderSubject$\" [attacker$]=\"attackerSubject2$\"></app-result>\n        </div>\n      </div>\n    </div>\n  </div>\n\n</div>\n\n\n";
       /***/
     },
 
@@ -318,6 +357,30 @@
       var _angular_material_divider__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @angular/material/divider */
       "f0Cb");
+      /* harmony import */
+
+
+      var _sequence_sequence_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ./sequence/sequence.component */
+      "w2ZS");
+      /* harmony import */
+
+
+      var _defender_settings_defender_settings_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! ./defender-settings/defender-settings.component */
+      "rctn");
+      /* harmony import */
+
+
+      var _attacker_settings_attacker_settings_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! ./attacker-settings/attacker-settings.component */
+      "ZzlX");
+      /* harmony import */
+
+
+      var _result_result_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! ./result/result.component */
+      "nNT0");
 
       var AppModule = function AppModule() {
         _classCallCheck(this, AppModule);
@@ -325,9 +388,144 @@
 
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_5__["MatSliderModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_9__["MatButtonToggleModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_10__["MatSlideToggleModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_12__["MatDividerModule"]],
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _sequence_sequence_component__WEBPACK_IMPORTED_MODULE_13__["SequenceComponent"], _defender_settings_defender_settings_component__WEBPACK_IMPORTED_MODULE_14__["DefenderSettingsComponent"], _attacker_settings_attacker_settings_component__WEBPACK_IMPORTED_MODULE_15__["AttackerSettingsComponent"], _result_result_component__WEBPACK_IMPORTED_MODULE_16__["ResultComponent"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
       })], AppModule);
+      /***/
+    },
+
+    /***/
+    "ZzlX":
+    /*!******************************************************************!*\
+      !*** ./src/app/attacker-settings/attacker-settings.component.ts ***!
+      \******************************************************************/
+
+    /*! exports provided: AttackerSettingsComponent */
+
+    /***/
+    function ZzlX(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AttackerSettingsComponent", function () {
+        return AttackerSettingsComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _raw_loader_attacker_settings_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./attacker-settings.component.html */
+      "8tzo");
+      /* harmony import */
+
+
+      var _attacker_settings_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./attacker-settings.component.css */
+      "45Wa");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/forms */
+      "3Pt+");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+
+      var AttackerSettingsComponent = /*#__PURE__*/function () {
+        function AttackerSettingsComponent() {
+          _classCallCheck(this, AttackerSettingsComponent);
+
+          this.diceCount = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](7);
+          this.toHit = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](4);
+          this.extradDamageOnFailedPanictest = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](0);
+          this.weakened = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.sundering = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.critBlow = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.vicious = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.precision = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.reroll = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.attackerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            diceCount: this.diceCount,
+            toHit: this.toHit,
+            weakened: this.weakened,
+            sundering: this.sundering,
+            critBlow: this.critBlow,
+            vicious: this.vicious,
+            precision: this.precision,
+            reroll: this.reroll,
+            extradDamageOnFailedPanictest: this.extradDamageOnFailedPanictest
+          });
+          this.full$ = this.attackerForm.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["startWith"])(this.attackerForm.value));
+        }
+
+        _createClass(AttackerSettingsComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this = this;
+
+            this.full$.subscribe(function (val) {
+              return _this.attackerSubject$.next(val);
+            });
+          }
+        }]);
+
+        return AttackerSettingsComponent;
+      }();
+
+      AttackerSettingsComponent.ctorParameters = function () {
+        return [];
+      };
+
+      AttackerSettingsComponent.propDecorators = {
+        attackerSubject$: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"]
+        }]
+      };
+      AttackerSettingsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-attacker-settings',
+        template: _raw_loader_attacker_settings_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewEncapsulation"].None,
+        styles: [_attacker_settings_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
+      })], AttackerSettingsComponent);
+      /***/
+    },
+
+    /***/
+    "c+cB":
+    /*!*********************************************!*\
+      !*** ./src/app/result/result.component.css ***!
+      \*********************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function cCB(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = ".result {\n    color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc3VsdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztBQUNmIiwiZmlsZSI6InJlc3VsdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlc3VsdCB7XG4gICAgY29sb3I6ICNmZmY7XG59Il19 */";
       /***/
     },
 
@@ -453,6 +651,524 @@
 
       /***/
 
+    },
+
+    /***/
+    "nNT0":
+    /*!********************************************!*\
+      !*** ./src/app/result/result.component.ts ***!
+      \********************************************/
+
+    /*! exports provided: ResultComponent */
+
+    /***/
+    function nNT0(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ResultComponent", function () {
+        return ResultComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _raw_loader_result_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./result.component.html */
+      "PEj0");
+      /* harmony import */
+
+
+      var _result_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./result.component.css */
+      "c+cB");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! rxjs */
+      "qCKp");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+
+      var ResultComponent = /*#__PURE__*/function () {
+        function ResultComponent() {
+          _classCallCheck(this, ResultComponent);
+
+          this.amountOfIterations = 200000;
+          this.iterationArray = this.arrayFromLength(this.amountOfIterations);
+        }
+
+        _createClass(ResultComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.wounds$ = this.avg();
+          }
+        }, {
+          key: "avg",
+          value: function avg() {
+            var _this2 = this;
+
+            return this.iterate().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (results) {
+              var sum = results.reduce(function (prev, cur) {
+                return prev + cur;
+              }, 0);
+              return sum / _this2.amountOfIterations;
+            }));
+          }
+        }, {
+          key: "iterate",
+          value: function iterate() {
+            var _this3 = this;
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["combineLatest"])([this.attacker$, this.defender$]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (_ref) {
+              var _ref2 = _slicedToArray(_ref, 2),
+                  attacker = _ref2[0],
+                  defender = _ref2[1];
+
+              return _this3.iterationArray.map(function (_) {
+                return _this3.getWounds(attacker, defender);
+              });
+            }));
+          }
+        }, {
+          key: "getWounds",
+          value: function getWounds(attacker, defender) {
+            var attackDice = this.rollSequenceD6(attacker.diceCount);
+            attackDice = attacker.reroll ? this.reroll(attackDice, attacker.toHit) : attackDice; // reroll
+
+            attackDice = attacker.weakened ? this.reroll(attackDice, attacker.toHit, false) : attackDice; // weakened
+
+            var toDefend = this.toDefend(attackDice, attacker);
+            var precisionWounds = this.precisionWounds(attackDice, attacker);
+            var defDice = this.rollSequenceD6(toDefend);
+            var defence = attacker.sundering ? defender.def + 1 : defender.def;
+            defDice = defender.vulnerable ? this.reroll(defDice, defence, false) : defDice;
+            var successfulDefended = this.successfulDefended(defDice, defence);
+            var totalWounds = toDefend - successfulDefended + precisionWounds;
+            return totalWounds > 0 ? totalWounds + this.getPanicDamage(defender, attacker) : 0;
+          }
+        }, {
+          key: "getPanicDamage",
+          value: function getPanicDamage(defender, attacker) {
+            var targetMorale = attacker.vicious ? Math.min(defender.morale + 2, 12) : defender.morale;
+            var res1 = this.d(6);
+            var res2 = this.d(6);
+
+            if (defender.panicked && res1 + res2 >= targetMorale) {
+              res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
+              res2 = res2 > targetMorale / 2 ? this.d(6) : res2;
+            }
+
+            return res1 + res2 < targetMorale ? this.d(3) + attacker.extradDamageOnFailedPanictest : 0;
+          }
+        }, {
+          key: "successfulDefended",
+          value: function successfulDefended(sequence, target) {
+            return sequence.filter(function (r) {
+              return r >= target;
+            }).length;
+          }
+        }, {
+          key: "precisionWounds",
+          value: function precisionWounds(sequence, attacker) {
+            var sixes = sequence.filter(function (r) {
+              return r === 6;
+            }).length;
+            return attacker.precision ? sixes : 0;
+          }
+        }, {
+          key: "toDefend",
+          value: function toDefend(sequence, attacker) {
+            var hitsWithoutSixes = sequence.filter(function (r) {
+              return r >= attacker.toHit && r !== 6;
+            }).length;
+            var sixes = sequence.filter(function (r) {
+              return r === 6;
+            }).length;
+
+            if (!attacker.critBlow || attacker.critBlow && attacker.precision) {
+              return hitsWithoutSixes + sixes;
+            } else {
+              return hitsWithoutSixes + sixes * 2;
+            }
+          }
+        }, {
+          key: "reroll",
+          value: function reroll(sequence, target) {
+            var _this4 = this;
+
+            var misses = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+            return sequence.map(function (orig) {
+              var d = orig;
+
+              if (misses && orig < target) {
+                d = _this4.d(6);
+              }
+
+              if (!misses && orig >= target) {
+                d = _this4.d(6);
+              }
+
+              return d;
+            });
+          }
+        }, {
+          key: "rollSequenceD6",
+          value: function rollSequenceD6(length) {
+            var _this5 = this;
+
+            return this.arrayFromLength(length).map(function (_) {
+              return _this5.d(6);
+            });
+          }
+        }, {
+          key: "arrayFromLength",
+          value: function arrayFromLength(length) {
+            return Array.from(Array(length).keys());
+          }
+        }, {
+          key: "d",
+          value: function d(sides) {
+            return 1 + Math.floor(Math.random() * sides);
+          }
+        }]);
+
+        return ResultComponent;
+      }();
+
+      ResultComponent.ctorParameters = function () {
+        return [];
+      };
+
+      ResultComponent.propDecorators = {
+        attacker$: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"]
+        }],
+        defender$: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"]
+        }]
+      };
+      ResultComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-result',
+        template: _raw_loader_result_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_result_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
+      })], ResultComponent);
+      /***/
+    },
+
+    /***/
+    "rctn":
+    /*!******************************************************************!*\
+      !*** ./src/app/defender-settings/defender-settings.component.ts ***!
+      \******************************************************************/
+
+    /*! exports provided: DefenderSettingsComponent */
+
+    /***/
+    function rctn(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DefenderSettingsComponent", function () {
+        return DefenderSettingsComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _raw_loader_defender_settings_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./defender-settings.component.html */
+      "8LaI");
+      /* harmony import */
+
+
+      var _defender_settings_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./defender-settings.component.css */
+      "xKqR");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/forms */
+      "3Pt+");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+
+      var DefenderSettingsComponent = /*#__PURE__*/function () {
+        function DefenderSettingsComponent() {
+          _classCallCheck(this, DefenderSettingsComponent);
+
+          this.morale = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](6);
+          this.def = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](4);
+          this.panicked = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.vulnerable = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.defenderForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            morale: this.morale,
+            def: this.def,
+            panicked: this.panicked,
+            vulnerable: this.vulnerable
+          });
+          this.full$ = this.defenderForm.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["startWith"])(this.defenderForm.value));
+        }
+
+        _createClass(DefenderSettingsComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this6 = this;
+
+            this.full$.subscribe(function (val) {
+              return _this6.defenderSubject$.next(val);
+            });
+          }
+        }]);
+
+        return DefenderSettingsComponent;
+      }();
+
+      DefenderSettingsComponent.ctorParameters = function () {
+        return [];
+      };
+
+      DefenderSettingsComponent.propDecorators = {
+        defenderSubject$: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"]
+        }]
+      };
+      DefenderSettingsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-defender-settings',
+        template: _raw_loader_defender_settings_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewEncapsulation"].None,
+        styles: [_defender_settings_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
+      })], DefenderSettingsComponent);
+      /***/
+    },
+
+    /***/
+    "w2ZS":
+    /*!************************************************!*\
+      !*** ./src/app/sequence/sequence.component.ts ***!
+      \************************************************/
+
+    /*! exports provided: SequenceComponent */
+
+    /***/
+    function w2ZS(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "SequenceComponent", function () {
+        return SequenceComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _raw_loader_sequence_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./sequence.component.html */
+      "zJNE");
+      /* harmony import */
+
+
+      var _sequence_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./sequence.component.css */
+      "JSeB");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/forms */
+      "3Pt+");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! rxjs */
+      "qCKp");
+
+      var SequenceComponent = /*#__PURE__*/function () {
+        function SequenceComponent() {
+          var _this7 = this;
+
+          _classCallCheck(this, SequenceComponent);
+
+          this.morale = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](6);
+          this.extraDamagePerFail = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](0);
+          this.panicked = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](false);
+          this.panicForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            morale: this.morale,
+            panicked: this.panicked,
+            extraDamagePerFail: this.extraDamagePerFail
+          });
+          this.amountOfIterations = 100000;
+          this.iterationArray = Array.from(Array(this.amountOfIterations).keys());
+          this.full$ = this.panicForm.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["startWith"])(this.panicForm.value));
+          this.resRough$ = this.full$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (fullForm) {
+            return _this7.iterationArray.map(function (c) {
+              var res1 = _this7.d(6);
+
+              var res2 = _this7.d(6);
+
+              if (fullForm.panicked && res1 + res2 >= fullForm.morale) {
+                res1 = res1 > fullForm.morale / 2 ? _this7.d(6) : res1;
+                res2 = res2 > fullForm.morale / 2 ? _this7.d(6) : res2;
+              }
+
+              return res1 + res2 < fullForm.morale;
+            });
+          }));
+          this.res$ = this.res();
+          this.dmg$ = this.dmg();
+          this.dmgAvg = 2;
+          this.dmgAvgPanicked = 7 / 3;
+        }
+
+        _createClass(SequenceComponent, [{
+          key: "dmg",
+          value: function dmg() {
+            var _this8 = this;
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["combineLatest"])([this.resRough$, this.full$]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (_ref3) {
+              var _ref4 = _slicedToArray(_ref3, 2),
+                  results = _ref4[0],
+                  form = _ref4[1];
+
+              var successes = results.filter(function (r) {
+                return r;
+              }).length;
+              var damagePerFail = (form.panicked ? _this8.dmgAvgPanicked : _this8.dmgAvg) + form.extraDamagePerFail;
+              return successes * damagePerFail / _this8.amountOfIterations;
+            }));
+          }
+        }, {
+          key: "res",
+          value: function res() {
+            return this.resRough$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (resArray) {
+              var successesCount = resArray.filter(function (r) {
+                return r;
+              }).length;
+              return successesCount * 100 / resArray.length;
+            }));
+          }
+        }, {
+          key: "d",
+          value: function d(sides) {
+            return 1 + Math.floor(Math.random() * sides);
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return SequenceComponent;
+      }();
+
+      SequenceComponent.ctorParameters = function () {
+        return [];
+      };
+
+      SequenceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-sequence',
+        template: _raw_loader_sequence_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_sequence_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
+      })], SequenceComponent);
+      /***/
+    },
+
+    /***/
+    "xKqR":
+    /*!*******************************************************************!*\
+      !*** ./src/app/defender-settings/defender-settings.component.css ***!
+      \*******************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function xKqR(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkZWZlbmRlci1zZXR0aW5ncy5jb21wb25lbnQuY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "zJNE":
+    /*!****************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/sequence/sequence.component.html ***!
+      \****************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function zJNE(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n    <div class=\"box\" [formGroup]=\"panicForm\">\n        <h4>Morale of target (including modifiers)</h4>\n        <mat-button-toggle-group formControlName=\"morale\" aria-label=\"Morale of target (including modifiers)\">\n            <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n            <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n            <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n            <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n            <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n            <mat-button-toggle [value]=\"7\">7</mat-button-toggle>\n            <mat-button-toggle [value]=\"8\">8</mat-button-toggle>\n            <mat-button-toggle [value]=\"9\">9</mat-button-toggle>\n            <mat-button-toggle [value]=\"10\">10</mat-button-toggle>\n            <mat-button-toggle [value]=\"11\">11</mat-button-toggle>\n            <mat-button-toggle [value]=\"12\">12</mat-button-toggle>\n        </mat-button-toggle-group>\n\n        <div>\n            <h4>Panic token</h4>\n            <mat-slide-toggle formControlName=\"panicked\">Panicked</mat-slide-toggle>\n        </div>\n\n        <div>\n\n            <h4>Extra Wounds per failed test</h4>\n            <mat-button-toggle-group formControlName=\"extraDamagePerFail\" aria-label=\"Extra Wounds per failed test\">\n                <mat-button-toggle [value]=\"0\">0</mat-button-toggle>\n                <mat-button-toggle [value]=\"1\">1</mat-button-toggle>\n                <mat-button-toggle [value]=\"2\">2</mat-button-toggle>\n                <mat-button-toggle [value]=\"3\">3</mat-button-toggle>\n                <mat-button-toggle [value]=\"4\">4</mat-button-toggle>\n                <mat-button-toggle [value]=\"5\">5</mat-button-toggle>\n                <mat-button-toggle [value]=\"6\">6</mat-button-toggle>\n            </mat-button-toggle-group>\n\n        </div>\n\n\n\n    </div>\n\n    <div class=\"box\">\n\n        <h3>{{res$ | async | number:'1.0-3'}} % probability the target fails the test</h3>\n\n        <h2>{{dmg$ | async | number:'1.0-3' }} average wounds caused on the target</h2>\n\n    </div>\n";
+      /***/
     },
 
     /***/

@@ -1,77 +1,42 @@
-import { Component, OnInit, VERSION } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import { combineLatest, Observable } from "rxjs";
-import { map, startWith } from "rxjs/operators";
+import {Component, OnInit, ViewEncapsulation} from "@angular/core";
+import {BehaviorSubject, Subject} from "rxjs";
+
+
+export interface IDefender {
+  def: number;
+  morale: number;
+  panicked: boolean;
+  vulnerable: boolean;
+}
+
+export interface IAttacker {
+  diceCount: number;
+  toHit: number;
+  extradDamageOnFailedPanictest: number;
+  reroll: boolean;
+  weakened: boolean;
+  sundering: boolean;
+  critBlow: boolean;
+  vicious: boolean;
+  precision: boolean;
+}
 
 @Component({
   selector: "my-app",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.css"],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  morale: FormControl = new FormControl(6);
-  extraDamagePerFail: FormControl = new FormControl(0);
-  panicked: FormControl = new FormControl(false);
-  panicForm: FormGroup = new FormGroup({
-    morale: this.morale,
-    panicked: this.panicked,
-    extraDamagePerFail: this.extraDamagePerFail
-  });
 
-  private amountOfIterations = 100000;
-  private iterationArray = Array.from(Array(this.amountOfIterations).keys());
-  private full$ = this.panicForm.valueChanges.pipe(
-    startWith(this.panicForm.value)
-  );
+  attackerSubject1$: BehaviorSubject<IAttacker> = new BehaviorSubject<IAttacker>(null);
+  attackerSubject2$: BehaviorSubject<IAttacker> = new BehaviorSubject<IAttacker>(null);
+  defenderSubject$: BehaviorSubject<IDefender> = new BehaviorSubject<IDefender>(null);
 
-  private resRough$ = this.full$.pipe(
-    map(
-      (fullForm): boolean[] => {
-        return this.iterationArray.map(c => {
-          let res1 = this.d(6);
-          let res2 = this.d(6);
-          if (fullForm.panicked && res1 + res2 >= fullForm.morale) {
-            res1 = res1 > fullForm.morale / 2 ? this.d(6) : res1;
-            res2 = res2 > fullForm.morale / 2 ? this.d(6) : res2;
-          }
-          return res1 + res2 < fullForm.morale;
-        });
-      }
-    )
-  );
-
-  res$ = this.res();
-  dmg$ = this.dmg();
-
-  dmgAvg = 2;
-  dmgAvgPanicked = 7 / 3;
-
-  private dmg() {
-    return combineLatest([this.resRough$, this.full$]).pipe(
-      map(
-        ([results, form]): number => {
-          const successes = results.filter(r => r).length;
-          const damagePerFail =
-            (form.panicked ? this.dmgAvgPanicked : this.dmgAvg) +
-            form.extraDamagePerFail;
-          return (successes * damagePerFail) / this.amountOfIterations;
-        }
-      )
-    );
+  ngOnInit() {
+    this.defenderSubject$.subscribe(v => console.log('defenderSubject$', v));
+    this.attackerSubject1$.subscribe(v => console.log('attackerSubject$', v));
+    this.attackerSubject2$.subscribe(v => console.log('attackerSubject$', v));
   }
 
-  private res(): Observable<number> {
-    return this.resRough$.pipe(
-      map((resArray: boolean[]) => {
-        const successesCount = resArray.filter(r => r).length;
-        return (successesCount * 100) / resArray.length;
-      })
-    );
-  }
-
-  private d(sides: number): number {
-    return 1 + Math.floor(Math.random() * sides);
-  }
-
-  ngOnInit() {}
 }

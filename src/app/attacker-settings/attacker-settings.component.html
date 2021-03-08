@@ -1,0 +1,51 @@
+<div class="box" [formGroup]="attackerForm">
+    <h4>Dice</h4>
+    <mat-button-toggle-group formControlName="diceCount" aria-label="Morale of defender">
+        <mat-button-toggle [value]="2">2</mat-button-toggle>
+        <mat-button-toggle [value]="3">3</mat-button-toggle>
+        <mat-button-toggle [value]="4">4</mat-button-toggle>
+        <mat-button-toggle [value]="5">5</mat-button-toggle>
+        <mat-button-toggle [value]="6">6</mat-button-toggle>
+        <mat-button-toggle [value]="7">7</mat-button-toggle>
+        <mat-button-toggle [value]="8">8</mat-button-toggle>
+        <mat-button-toggle [value]="9">9</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div>
+        <h4>To Hit</h4>
+        <mat-button-toggle-group formControlName="toHit" aria-label="Def-Value of defender">
+            <mat-button-toggle [value]="2">2</mat-button-toggle>
+            <mat-button-toggle [value]="3">3</mat-button-toggle>
+            <mat-button-toggle [value]="4">4</mat-button-toggle>
+            <mat-button-toggle [value]="5">5</mat-button-toggle>
+            <mat-button-toggle [value]="6">6</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+
+    <div class="u-mb">
+        <h4>Extra damage on failed panic-test</h4>
+        <mat-button-toggle-group formControlName="extradDamageOnFailedPanictest" >
+            <mat-button-toggle [value]="0">0</mat-button-toggle>
+            <mat-button-toggle [value]="1">1</mat-button-toggle>
+            <mat-button-toggle [value]="2">2</mat-button-toggle>
+            <mat-button-toggle [value]="3">3</mat-button-toggle>
+            <mat-button-toggle [value]="4">4</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+
+
+    <div class="u-mb">
+        <mat-slide-toggle formControlName="reroll">Reroll</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+
+    <div class="u-mb">
+        <mat-slide-toggle formControlName="weakened">Weakened</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+
+    <div>
+        <mat-slide-toggle formControlName="sundering">Sundering</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slide-toggle formControlName="critBlow">Critical Blow</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slide-toggle formControlName="vicious">Vicious</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slide-toggle formControlName="precision">precision</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+</div>

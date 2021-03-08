@@ -1,0 +1,4 @@
+<div class="result" *ngIf="wounds$">
+    <h1>Avg. Wounds after {{amountOfIterations | number:'1.0-2' }} Fights: {{wounds$ | async | number:'1.0-2'}}</h1>
+</div>
+
