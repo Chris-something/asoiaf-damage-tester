@@ -162,8 +162,14 @@ export class ResultComponent implements OnInit {
     let res2 = this.d(6);
     let pDamag = this.d(3);
     if (attacker.panicked && (res1 + res2 >= targetMorale)) {
-      res1 = res1 >= targetMorale / 2 ? this.d(6) : res1;
-      res2 = res2 >= targetMorale / 2 ? this.d(6) : res2;
+      if (targetMorale > 10) {
+        res1 = res1 >= targetMorale / 2 ? this.d(6) : res1;
+        res2 = res2 >= targetMorale / 2 ? this.d(6) : res2;
+      } else {
+        res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
+        res2 = res2 > targetMorale / 2 ? this.d(6) : res2;
+      }
+
       pDamag = pDamag < 2 ? this.d(3) : pDamag;
     }
     const w = res1 + res2 < targetMorale ? (pDamag + attacker.extradDamageOnFailedPanictest) : 0;
