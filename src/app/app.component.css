@@ -35,7 +35,7 @@ h4 {
   text-shadow: rgba(0,0,0,.5) 0 8px 6px;
   text-outline: #FFFFFF 1px;
   transform-origin: 50% 100%;
-  font-size: 5vw;
+  font-size: 4vw;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: .05em;
@@ -61,4 +61,26 @@ h4 {
 
 .u-mb {
   margin-bottom: 20px;
+}
+
+.block {
+  transition: .3s;
+  background: #fff;
+  vertical-align: baseline;
+  display: inline-block;
+  margin: 0 2px;
+  position: relative;
+}
+
+.block--fake {
+  opacity: 0;
+}
+
+.block > span {
+  font-size: 12px;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: -20px;
+  left: 0;
 }

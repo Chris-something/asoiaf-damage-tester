@@ -30,6 +30,10 @@ export class ResultComponent implements OnInit {
   maxWounds$: Observable<number>;
   whipes$: Observable<number>;
 
+  distribution$: Observable<{wounds: number, count: number}[] >;
+  maxDistribution$: Observable<number>;
+  maxDistribution: number;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -39,18 +43,48 @@ export class ResultComponent implements OnInit {
     this.whipes$ = this.maxWoundsProp();
     this.attacksWithZeroWounds$ = this.attacksWithZeroWounds();
     this.panicTestsFailed$ = this.panicTestsFailed();
+    this.distribution$ = this.getDistribution();
+    this.maxDistribution$ = this.getDistributionMax();
   }
 
+  private getMax(arr) {
+     let len = arr.length;
+     let max = -Infinity;
 
- private getMax(arr) {
-   let len = arr.length;
-   let max = -Infinity;
-
-   while (len--) {
-     max = arr[len] > max ? arr[len] : max;
-   }
-   return max;
+     while (len--) {
+       max = arr[len] > max ? arr[len] : max;
+     }
+     return max;
  }
+
+  trackByWound(index, item) {
+    return item.wounds;
+  }
+
+  getDistributionMax() {
+    return this.distribution$.pipe(map(distr => {
+        return Math.max(...distr.map(d => d.count))
+    }))
+  }
+
+  getDistribution() {
+    return combineLatest([this.iteration$, this.maxWounds$]).pipe(
+      map(([res, maxWounds]) => {
+      const dist = this.arrayFromLength(maxWounds + 1);
+       const returnThis = dist.reduce((prev, curr) => {
+         return [
+           ...prev,
+           {
+             wounds: curr,
+             count: res.filter(r => r.totalWounds === curr).length
+           }
+         ]
+       }, []);
+       this.maxDistribution = Math.max(...returnThis.map(d => d.count));
+       return returnThis;
+    }));
+  }
+
   maxWounds(): Observable<number> {
     return this.iteration$.pipe(map(results => {
       const flat = results.map(r => r.totalWounds);
