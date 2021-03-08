@@ -162,7 +162,7 @@ export class ResultComponent implements OnInit {
     let res2 = this.d(6);
     let pDamag = this.d(3);
     if (attacker.panicked && (res1 + res2 >= targetMorale)) {
-      if (targetMorale > 10) {
+      if (targetMorale >= 8) {
         res1 = res1 >= targetMorale / 2 ? this.d(6) : res1;
         res2 = res2 >= targetMorale / 2 ? this.d(6) : res2;
       } else {
