@@ -34,9 +34,6 @@ export class AppComponent implements OnInit {
   defenderSubject$: BehaviorSubject<IDefender> = new BehaviorSubject<IDefender>(null);
 
   ngOnInit() {
-    this.defenderSubject$.subscribe(v => console.log('defenderSubject$', v));
-    this.attackerSubject1$.subscribe(v => console.log('attackerSubject$', v));
-    this.attackerSubject2$.subscribe(v => console.log('attackerSubject$', v));
   }
 
 }

@@ -58,16 +58,15 @@ export class ResultComponent implements OnInit {
   }
 
   getPanicDamage(defender: IDefender, attacker: IAttacker): number {
-
-    const targetMorale = attacker.vicious ? Math.min(defender.morale + 2, 12) : defender.morale;
-
+    const targetMorale = attacker.vicious ? Math.min((defender.morale + 2), 12) : defender.morale;
     let res1 = this.d(6);
     let res2 = this.d(6);
-    if (attacker.panicked && res1 + res2 >= targetMorale) {
-      res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
-      res2 = res2 > targetMorale / 2 ? this.d(6) : res2;
+    if (attacker.panicked && (res1 + res2 >= targetMorale)) {
+      res1 = res1 >= targetMorale / 2 ? this.d(6) : res1;
+      res2 = res2 >= targetMorale / 2 ? this.d(6) : res2;
     }
-    return res1 + res2 < targetMorale ? (this.d(3) + attacker.extradDamageOnFailedPanictest) : 0;
+    const w = res1 + res2 < targetMorale ? ((attacker.panicked ? 7/3 : 2) + attacker.extradDamageOnFailedPanictest) : 0;
+    return w;
   }
 
   private successfulDefended(sequence: number[], target): number {
