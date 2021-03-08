@@ -82,7 +82,9 @@ export class ResultComponent implements OnInit {
   private toDefend(sequence: number[], attacker: IAttacker): number {
     const hitsWithoutSixes = sequence.filter(r => r >= attacker.toHit && r !== 6).length;
     const sixes = sequence.filter(r => r === 6).length;
-    if (!attacker.critBlow || (attacker.critBlow && attacker.precision)) {
+    if (!attacker.critBlow && attacker.precision) {
+      return hitsWithoutSixes;
+    } else if (!attacker.critBlow || (attacker.critBlow && attacker.precision)) {
       return hitsWithoutSixes + sixes;
     } else {
       return hitsWithoutSixes + ( sixes * 2 );
