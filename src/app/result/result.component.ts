@@ -39,7 +39,7 @@ export class ResultComponent implements OnInit {
     }));
   }
 
-  getWounds(attacker, defender): number {
+  getWounds(attacker: IAttacker, defender: IDefender): number {
     let attackDice = this.rollSequenceD6(attacker.diceCount);
 
     attackDice = attacker.reroll ? this.reroll(attackDice, attacker.toHit) : attackDice; // reroll
@@ -50,7 +50,7 @@ export class ResultComponent implements OnInit {
 
     let defDice = this.rollSequenceD6(toDefend);
     const defence = attacker.sundering ? defender.def + 1 : defender.def;
-    defDice = defender.vulnerable ? this.reroll(defDice, defence, false): defDice;
+    defDice = attacker.vulnerable ? this.reroll(defDice, defence, false): defDice;
     const successfulDefended = this.successfulDefended(defDice, defence);
 
     const totalWounds = toDefend - successfulDefended + precisionWounds;
@@ -63,7 +63,7 @@ export class ResultComponent implements OnInit {
 
     let res1 = this.d(6);
     let res2 = this.d(6);
-    if (defender.panicked && res1 + res2 >= targetMorale) {
+    if (attacker.panicked && res1 + res2 >= targetMorale) {
       res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
       res2 = res2 > targetMorale / 2 ? this.d(6) : res2;
     }

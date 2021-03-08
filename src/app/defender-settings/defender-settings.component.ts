@@ -15,14 +15,9 @@ export class DefenderSettingsComponent implements OnInit {
   morale: FormControl = new FormControl(6);
   def: FormControl = new FormControl(4);
 
-  panicked: FormControl = new FormControl(false);
-  vulnerable: FormControl = new FormControl(false);
-
   defenderForm: FormGroup = new FormGroup({
     morale: this.morale,
     def: this.def,
-    panicked: this.panicked,
-    vulnerable: this.vulnerable,
   });
 
   @Input() defenderSubject$: Subject<IDefender>;

@@ -17,6 +17,8 @@ export class AttackerSettingsComponent implements OnInit {
   extradDamageOnFailedPanictest: FormControl = new FormControl(0);
 
   weakened: FormControl = new FormControl(false);
+  vulnerable: FormControl = new FormControl(false);
+  panicked: FormControl = new FormControl(false);
 
   sundering: FormControl = new FormControl(false);
   critBlow: FormControl = new FormControl(false);
@@ -31,6 +33,8 @@ export class AttackerSettingsComponent implements OnInit {
     diceCount: this.diceCount,
     toHit: this.toHit,
     weakened: this.weakened,
+    vulnerable: this.vulnerable,
+    panicked: this.panicked,
     sundering: this.sundering,
     critBlow: this.critBlow,
     vicious: this.vicious,

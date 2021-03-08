@@ -5,8 +5,6 @@ import {BehaviorSubject, Subject} from "rxjs";
 export interface IDefender {
   def: number;
   morale: number;
-  panicked: boolean;
-  vulnerable: boolean;
 }
 
 export interface IAttacker {
@@ -15,6 +13,8 @@ export interface IAttacker {
   extradDamageOnFailedPanictest: number;
   reroll: boolean;
   weakened: boolean;
+  vulnerable: boolean;
+  panicked: boolean;
   sundering: boolean;
   critBlow: boolean;
   vicious: boolean;
