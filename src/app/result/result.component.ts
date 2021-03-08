@@ -1,7 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {combineLatest, Observable, Subject} from "rxjs";
 import {IAttacker, IDefender} from "../app.component";
-import {debounceTime, map} from "rxjs/operators";
+import {debounceTime, map, share} from "rxjs/operators";
+
+interface IRes {
+  failedPanicTest: boolean;
+  damageFromPanic: number;
+  damageFromAttackOnly: number;
+  totalWounds: number;
+}
 
 @Component({
   selector: 'app-result',
@@ -13,33 +20,72 @@ export class ResultComponent implements OnInit {
   @Input() attacker$: Observable<IAttacker>;
   @Input() defender$: Observable<IDefender>;
 
-  amountOfIterations = 150000;
+  amountOfIterations = 250000;
   private iterationArray = this.arrayFromLength(this.amountOfIterations);
 
-  wounds$;
+  iteration$: Observable<IRes[]>;
+  wounds$: Observable<number>;
+  attacksWithZeroWounds$: Observable<number>;
+  panicTestsFailed$: Observable<number>;
+  maxWounds$: Observable<number>;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.wounds$ = this.avg();
+    this.iteration$ = this.iterate();
+    this.wounds$ = this.avgWounds();
+    this.maxWounds$ = this.maxWounds();
+    this.attacksWithZeroWounds$ = this.attacksWithZeroWounds();
+    this.panicTestsFailed$ = this.panicTestsFailed();
+  }
+ private getMax(arr) {
+   let len = arr.length;
+   let max = -Infinity;
+
+   while (len--) {
+     max = arr[len] > max ? arr[len] : max;
+   }
+   return max;
+ }
+  maxWounds(): Observable<number> {
+    return this.iteration$.pipe(map(results => {
+      const flat = results.map(r => r.totalWounds);
+      return this.getMax(flat);
+    }));
   }
 
-  avg(): Observable<number> {
-    return this.iterate().pipe(map(results => {
-      const sum = results.reduce((prev, cur) => prev + cur, 0);
+  attacksWithZeroWounds(): Observable<number> {
+    return this.iteration$.pipe(map(results => {
+      const sum = results.filter(r => r.totalWounds === 0).length;
+      return sum / this.amountOfIterations * 100;
+    }));
+  }
+
+  panicTestsFailed(): Observable<number> {
+    return this.iteration$.pipe(map(results => {
+      const sum = results.filter(r => r.damageFromPanic > 0).length;
+      const testsMade = results.filter(r => r.damageFromAttackOnly > 0).length;
+      return sum / testsMade * 100;
+    }));
+  }
+
+  avgWounds(): Observable<number> {
+    return this.iteration$.pipe(map(results => {
+      const sum = results.reduce((prev, cur) => prev + cur.totalWounds, 0);
       return sum / this.amountOfIterations;
     }));
   }
 
-  iterate(): Observable<number[]> {
+  iterate(): Observable<IRes[]> {
+
     return combineLatest([this.attacker$, this.defender$]).pipe(
       debounceTime(100),
       map(([attacker, defender]) => {
         return this.iterationArray.map(_ => this.getWounds(attacker, defender))
-    }));
+    }), share());
   }
 
-  getWounds(attacker: IAttacker, defender: IDefender): number {
+  getWounds(attacker: IAttacker, defender: IDefender): IRes {
     let attackDice = this.rollSequenceD6(attacker.diceCount);
 
     attackDice = attacker.reroll ? this.reroll(attackDice, attacker.toHit) : attackDice; // reroll
@@ -51,21 +97,31 @@ export class ResultComponent implements OnInit {
     let defDice = this.rollSequenceD6(toDefend);
     const defence = attacker.sundering ? defender.def + 1 : defender.def;
     defDice = attacker.vulnerable ? this.reroll(defDice, defence, false): defDice;
-    const successfulDefended = this.successfulDefended(defDice, defence);
+    const successfullyDefended = this.successfulDefended(defDice, defence);
 
-    const totalWounds = toDefend - successfulDefended + precisionWounds;
-    return totalWounds > 0 ? totalWounds + this.getPanicDamage(defender, attacker) : 0;
+    const totalWounds = toDefend - successfullyDefended + precisionWounds;
+    const panicDamageTheoretically = this.getPanicDamage(defender, attacker);
+    const testFailed = panicDamageTheoretically > 0;
+    const panicDamageReal = testFailed && totalWounds ? panicDamageTheoretically : 0;
+    return {
+      failedPanicTest: testFailed,
+      damageFromAttackOnly: totalWounds,
+      damageFromPanic: panicDamageReal,
+      totalWounds: totalWounds + panicDamageReal
+    }
   }
 
   getPanicDamage(defender: IDefender, attacker: IAttacker): number {
     const targetMorale = attacker.vicious ? Math.min((defender.morale + 2), 12) : defender.morale;
     let res1 = this.d(6);
     let res2 = this.d(6);
+    let pDamag = this.d(3);
     if (attacker.panicked && (res1 + res2 >= targetMorale)) {
       res1 = res1 >= targetMorale / 2 ? this.d(6) : res1;
       res2 = res2 >= targetMorale / 2 ? this.d(6) : res2;
+      pDamag = pDamag < 2 ? this.d(3) : pDamag;
     }
-    const w = res1 + res2 < targetMorale ? ((attacker.panicked ? 7/3 : 2) + attacker.extradDamageOnFailedPanictest) : 0;
+    const w = res1 + res2 < targetMorale ? (pDamag + attacker.extradDamageOnFailedPanictest) : 0;
     return w;
   }
 

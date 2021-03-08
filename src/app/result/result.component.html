@@ -1,4 +1,7 @@
 <div class="result" *ngIf="wounds$">
     <h1>Avg. Wounds after {{amountOfIterations | number:'1.0-2' }} Fights: {{wounds$ | async | number:'1.0-2'}}</h1>
+    <h2>Panic tests failed: {{panicTestsFailed$ | async | number:'1.0-2' }}%</h2>
+    <h2>Zero wounds: {{attacksWithZeroWounds$ | async | number:'1.0-2' }}%</h2>
+    <h2>Max wounds: {{maxWounds$ | async }}</h2>
 </div>
 
