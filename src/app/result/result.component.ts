@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {combineLatest, Observable, Subject} from "rxjs";
 import {IAttacker, IDefender} from "../app.component";
-import {map} from "rxjs/operators";
+import {debounceTime, map} from "rxjs/operators";
 
 @Component({
   selector: 'app-result',
@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit {
   @Input() attacker$: Observable<IAttacker>;
   @Input() defender$: Observable<IDefender>;
 
-  amountOfIterations = 200000;
+  amountOfIterations = 150000;
   private iterationArray = this.arrayFromLength(this.amountOfIterations);
 
   wounds$;
@@ -32,8 +32,10 @@ export class ResultComponent implements OnInit {
   }
 
   iterate(): Observable<number[]> {
-    return combineLatest([this.attacker$, this.defender$]).pipe(map(([attacker, defender]) => {
-      return this.iterationArray.map(_ => this.getWounds(attacker, defender))
+    return combineLatest([this.attacker$, this.defender$]).pipe(
+      debounceTime(100),
+      map(([attacker, defender]) => {
+        return this.iterationArray.map(_ => this.getWounds(attacker, defender))
     }));
   }
 
