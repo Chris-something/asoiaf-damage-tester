@@ -4,10 +4,10 @@
     <h4>Avg. Wounds after {{amountOfIterations | number:'1.0-2' }} Fights:</h4>
     <h1 style="font-size: 5em; margin-top: 0; margin-bottom: .1em;">{{wounds$ | async | number:'1.0-2'}}</h1>
 
-    <div style="height: 200px; margin-top: 20px; margin-bottom: 40px;">
+    <div style="height: 200px; margin-top: 20px; margin-bottom: 40px; white-space: nowrap; padding-bottom: 20px; overflow: hidden">
         <div class="block block--fake" style="width: 1px; height: 100%;"></div>
         <div class="block" *ngFor="let d of (distribution$ | async); trackBy: trackByWound"
-             [style.width.%]="5"
+             [style.width.%]="4.5"
              [style.height.%]="d.count / maxDistribution * 100">
             <span>{{d.wounds}}</span>
         </div>
