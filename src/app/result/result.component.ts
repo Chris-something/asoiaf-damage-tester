@@ -28,6 +28,7 @@ export class ResultComponent implements OnInit {
   attacksWithZeroWounds$: Observable<number>;
   panicTestsFailed$: Observable<number>;
   maxWounds$: Observable<number>;
+  whipes$: Observable<number>;
 
   constructor() { }
 
@@ -35,9 +36,12 @@ export class ResultComponent implements OnInit {
     this.iteration$ = this.iterate();
     this.wounds$ = this.avgWounds();
     this.maxWounds$ = this.maxWounds();
+    this.whipes$ = this.maxWoundsProp();
     this.attacksWithZeroWounds$ = this.attacksWithZeroWounds();
     this.panicTestsFailed$ = this.panicTestsFailed();
   }
+
+
  private getMax(arr) {
    let len = arr.length;
    let max = -Infinity;
@@ -51,6 +55,13 @@ export class ResultComponent implements OnInit {
     return this.iteration$.pipe(map(results => {
       const flat = results.map(r => r.totalWounds);
       return this.getMax(flat);
+    }));
+  }
+
+  maxWoundsProp(): Observable<number> {
+    return this.iteration$.pipe(map(results => {
+      const sum = results.filter(r => r.totalWounds >= 12).length;
+      return sum / this.amountOfIterations * 100;
     }));
   }
 
