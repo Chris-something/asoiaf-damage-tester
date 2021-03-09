@@ -5,12 +5,12 @@ import {Subject} from "rxjs";
 import {IAttacker} from "../app.component";
 
 @Component({
-  selector: 'app-attacker-settings',
+  selector: 'app-attacker-settings-small',
   templateUrl: './attacker-settings.component.html',
   styleUrls: ['./attacker-settings.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AttackerSettingsComponent implements OnInit {
+export class AttackerSettingsSmallComponent implements OnInit {
 
   diceCount: FormControl = new FormControl(7);
   toHit: FormControl = new FormControl(4);

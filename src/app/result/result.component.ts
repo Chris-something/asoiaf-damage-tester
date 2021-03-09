@@ -47,6 +47,15 @@ export class ResultComponent implements OnInit {
     this.maxDistribution$ = this.getDistributionMax();
   }
 
+  iterate(): Observable<IRes[]> {
+    return combineLatest([this.attacker$, this.defender$]).pipe(
+      debounceTime(400),
+      map(([attacker, defender]) => {
+        return this.iterationArray.map(_ => this.getWounds(attacker, defender))
+      }), share());
+  }
+
+
   private getMax(arr) {
      let len = arr.length;
      let max = -Infinity;
@@ -120,16 +129,6 @@ export class ResultComponent implements OnInit {
       return sum / this.amountOfIterations;
     }));
   }
-
-  iterate(): Observable<IRes[]> {
-
-    return combineLatest([this.attacker$, this.defender$]).pipe(
-      debounceTime(100),
-      map(([attacker, defender]) => {
-        return this.iterationArray.map(_ => this.getWounds(attacker, defender))
-    }), share());
-  }
-
   getWounds(attacker: IAttacker, defender: IDefender): IRes {
     let attackDice = this.rollSequenceD6(attacker.diceCount);
 
@@ -163,8 +162,8 @@ export class ResultComponent implements OnInit {
     let pDamag = this.d(3);
     if (attacker.panicked && (res1 + res2 >= targetMorale)) {
       if (targetMorale >= 8) {
-        res1 = res1 >= targetMorale / 2 ? this.d(6) : res1;
-        res2 = res2 >= targetMorale / 2 ? this.d(6) : res2;
+        res1 = res1 >= 4 ? this.d(6) : res1;
+        res2 = res2 >= 4 ? this.d(6) : res2;
       } else {
         res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
         res2 = res2 > targetMorale / 2 ? this.d(6) : res2;

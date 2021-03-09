@@ -1,11 +1,13 @@
-<div class="app" style="text-align: center">
-  <div class="app-title-wrapper">
-    <h1 class="app__title">More or less Killy
-    </h1>
+<div class="app" >
+  <div class="app-title-wrapper" style="text-align: center">
+    <img src="assets/title.png" style="max-height: 100px">
+<!--    <h1 class="app__title">More or less Killy-->
+<!--    </h1>-->
   </div>
 
 
-  <div class="p">
+  <div class="p-v">
+    <h2 style="margin: 0">Defender <small style="font-size: .6em">(Tokens are applied via attack-options)</small></h2>
     <app-defender-settings [defenderSubject$]="defenderSubject$"></app-defender-settings>
   </div>
 
@@ -14,8 +16,10 @@
   <div>
     <div style="display: inline-block; width: 50%; border-right: 1px solid">
       <div class="p">
-        <h2>Attack Option 1</h2>
-        <app-attacker-settings [attackerSubject$]="attackerSubject1$"></app-attacker-settings>
+
+        <app-attacker-settings-small [attackerSubject$]="attackerSubject1$">
+          <h2 style="margin: 0">Attack Option 1</h2>
+        </app-attacker-settings-small>
         <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
           <app-result  [defender$]="defenderSubject$" [attacker$]="attackerSubject1$"></app-result>
         </div>
@@ -24,8 +28,10 @@
     </div>
     <div style="display: inline-block; width: 50%">
       <div class="p">
-        <h2>Attack Option 2</h2>
-        <app-attacker-settings [attackerSubject$]="attackerSubject2$"></app-attacker-settings>
+
+        <app-attacker-settings-small [attackerSubject$]="attackerSubject2$">
+          <h2 style="margin: 0">Attack Option 2</h2>
+        </app-attacker-settings-small>
         <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
           <app-result [defender$]="defenderSubject$" [attacker$]="attackerSubject2$"></app-result>
         </div>

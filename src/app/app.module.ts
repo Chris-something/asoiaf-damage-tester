@@ -16,6 +16,8 @@ import { SequenceComponent } from './sequence/sequence.component';
 import { DefenderSettingsComponent } from './defender-settings/defender-settings.component';
 import {AttackerSettingsComponent} from "./attacker-settings/attacker-settings.component";
 import { ResultComponent } from './result/result.component';
+import {AttackerSettingsSmallComponent} from "./attacker-settings-small/attacker-settings.component";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   imports: [
@@ -27,10 +29,11 @@ import { ResultComponent } from './result/result.component';
     MatButtonToggleModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatSelectModule,
     MatCardModule,
     MatDividerModule
   ],
-  declarations: [AppComponent, SequenceComponent, DefenderSettingsComponent, AttackerSettingsComponent, ResultComponent],
+  declarations: [AppComponent, SequenceComponent, DefenderSettingsComponent, AttackerSettingsComponent, ResultComponent, AttackerSettingsSmallComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
