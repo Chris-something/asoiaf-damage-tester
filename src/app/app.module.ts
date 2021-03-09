@@ -18,6 +18,8 @@ import {AttackerSettingsComponent} from "./attacker-settings/attacker-settings.c
 import { ResultComponent } from './result/result.component';
 import {AttackerSettingsSmallComponent} from "./attacker-settings-small/attacker-settings.component";
 import {MatSelectModule} from "@angular/material/select";
+import {HistogrammService} from "./histogramm.service";
+import {HistogrammsComponent} from "./histogramms/histogramms.component";
 
 @NgModule({
   imports: [
@@ -33,7 +35,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatCardModule,
     MatDividerModule
   ],
-  declarations: [AppComponent, SequenceComponent, DefenderSettingsComponent, AttackerSettingsComponent, ResultComponent, AttackerSettingsSmallComponent],
+  declarations: [AppComponent, SequenceComponent, DefenderSettingsComponent, AttackerSettingsComponent, ResultComponent, AttackerSettingsSmallComponent, HistogrammsComponent],
+  providers: [HistogrammService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

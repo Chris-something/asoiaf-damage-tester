@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {combineLatest, Observable, Subject} from "rxjs";
+import {BehaviorSubject, combineLatest, Observable, Subject} from "rxjs";
 import {IAttacker, IDefender} from "../app.component";
 import {debounceTime, map, share} from "rxjs/operators";
+import {HistogrammService} from "../histogramm.service";
 
 interface IRes {
   failedPanicTest: boolean;
@@ -20,6 +21,9 @@ export class ResultComponent implements OnInit {
   @Input() attacker$: Observable<IAttacker>;
   @Input() defender$: Observable<IDefender>;
 
+  @Input() maxX$: BehaviorSubject<number>;
+  @Input() maxY$: BehaviorSubject<number>;
+
   amountOfIterations = 250000;
   private iterationArray = this.arrayFromLength(this.amountOfIterations);
 
@@ -34,7 +38,7 @@ export class ResultComponent implements OnInit {
   maxDistribution$: Observable<number>;
   maxDistribution: number;
 
-  constructor() { }
+  constructor(private histogrammService: HistogrammService) { }
 
   ngOnInit(): void {
     this.iteration$ = this.iterate();
@@ -45,6 +49,12 @@ export class ResultComponent implements OnInit {
     this.panicTestsFailed$ = this.panicTestsFailed();
     this.distribution$ = this.getDistribution();
     this.maxDistribution$ = this.getDistributionMax();
+
+    this.maxDistribution$.subscribe(m => this.maxY$.next(m));
+    this.distribution$.subscribe(d => this.maxX$.next(d.length) );
+
+    this.histogrammService.combinedMaxForY$.subscribe(y => this.maxDistribution = y);
+
   }
 
   iterate(): Observable<IRes[]> {
@@ -89,7 +99,7 @@ export class ResultComponent implements OnInit {
            }
          ]
        }, []);
-       this.maxDistribution = Math.max(...returnThis.map(d => d.count));
+       // this.maxDistribution = Math.max(...returnThis.map(d => d.count));
        return returnThis;
     }));
   }

@@ -1,8 +1,7 @@
 <div class="app" >
   <div class="app-title-wrapper" style="text-align: center">
-    <img src="assets/title.png" style="max-height: 100px">
-<!--    <h1 class="app__title">More or less Killy-->
-<!--    </h1>-->
+    <h4 style="margin-top: 0; margin-bottom: 2px">An inofficial Killyness Tester [TBD]</h4>
+<!--    <img src="assets/title.png" style="max-height: 100px">-->
   </div>
 
 
@@ -13,32 +12,35 @@
 
   <hr>
 
-  <div>
-    <div style="display: inline-block; width: 50%; border-right: 1px solid">
-      <div class="p">
+
+  <div [ngClass]="{'combined': combineView}">
+
+    <div style="display: inline-block; width: 50%;"  >
+
+      <div class="p attacker-a">
 
         <app-attacker-settings-small [attackerSubject$]="attackerSubject1$">
           <h2 style="margin: 0">Attack Option 1</h2>
         </app-attacker-settings-small>
         <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
-          <app-result  [defender$]="defenderSubject$" [attacker$]="attackerSubject1$"></app-result>
+          <app-result [maxX$]="histogrammService.a_maxX$" [maxY$]="histogrammService.a_maxY$"  [defender$]="defenderSubject$" [attacker$]="attackerSubject1$"></app-result>
         </div>
       </div>
 
     </div>
     <div style="display: inline-block; width: 50%">
-      <div class="p">
+      <div class="p attacker-b">
 
         <app-attacker-settings-small [attackerSubject$]="attackerSubject2$">
           <h2 style="margin: 0">Attack Option 2</h2>
         </app-attacker-settings-small>
         <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
-          <app-result [defender$]="defenderSubject$" [attacker$]="attackerSubject2$"></app-result>
+          <app-result [maxX$]="histogrammService.b_maxX$" [maxY$]="histogrammService.b_maxY$" [defender$]="defenderSubject$" [attacker$]="attackerSubject2$"></app-result>
         </div>
       </div>
     </div>
   </div>
-
+  <button (click)="combineView = !combineView" >combine</button>
 </div>
 
 
