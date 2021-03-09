@@ -1,8 +1,11 @@
 html,
 * {
-  font-family: "Palatino", serif;
+  font-family: "Palatino", "Georgia", serif;
   box-sizing: border-box;
+}
 
+.mat-slide-toggle-content {
+  font-family: "Palatino", "Georgia", serif;
 }
 
 html, body {
