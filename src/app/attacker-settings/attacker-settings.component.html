@@ -1,8 +1,5 @@
 <div [formGroup]="attackerForm">
-
-
-    <div class="box" >
-
+    <div class="box">
         <ng-content></ng-content>
 
         <h4>Dice</h4>
@@ -30,7 +27,7 @@
 
         <div class="u-mb">
             <h4>Extra damage on failed panic-test</h4>
-            <mat-button-toggle-group formControlName="extradDamageOnFailedPanictest" >
+            <mat-button-toggle-group formControlName="extradDamageOnFailedPanictest">
                 <mat-button-toggle [value]="0">0</mat-button-toggle>
                 <mat-button-toggle [value]="1">1</mat-button-toggle>
                 <mat-button-toggle [value]="2">2</mat-button-toggle>
@@ -39,21 +36,25 @@
             </mat-button-toggle-group>
         </div>
 
-
         <div class="u-mb">
             <mat-slide-toggle formControlName="reroll">Reroll</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
 
         <div class="u-mb">
+            <label class="token-toggle token-toggle--weakened"
+                ><input type="checkbox" formControlName="weakened" />
+                <span class="token-toggle-wrapper"><img src="assets/WeakenedToken.png" /></span>
+            </label>
 
-            <label class="token-toggle token-toggle--weakened"><input type="checkbox" formControlName="weakened" />
-                <span class="token-toggle-wrapper"><img src="assets/WeakenedToken.png"></span>  </label>
+            <label class="token-toggle token-toggle--vulnerable"
+                ><input type="checkbox" formControlName="vulnerable" />
+                <span class="token-toggle-wrapper"><img src="assets/VulnerableToken.png" /></span>
+            </label>
 
-            <label class="token-toggle token-toggle--vulnerable"><input type="checkbox" formControlName="vulnerable" />
-                <span class="token-toggle-wrapper"><img src="assets/VulnerableToken.png"></span> </label>
-
-            <label class="token-toggle token-toggle--panicked"><input type="checkbox" formControlName="panicked" />
-                <span class="token-toggle-wrapper"><img src="assets/PanicToken.png"></span> </label>
+            <label class="token-toggle token-toggle--panicked"
+                ><input type="checkbox" formControlName="panicked" />
+                <span class="token-toggle-wrapper"><img src="assets/PanicToken.png" /></span>
+            </label>
         </div>
 
         <div>
@@ -64,4 +65,3 @@
         </div>
     </div>
 </div>
-

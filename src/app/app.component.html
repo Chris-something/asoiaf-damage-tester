@@ -1,46 +1,50 @@
-<div class="app" >
-  <div class="app-title-wrapper" style="text-align: center">
-    <h4 style="margin-top: 0; margin-bottom: 2px">More or less killy [TBD]</h4>
-<!--    <img src="assets/title.png" style="max-height: 100px">-->
-  </div>
-
-
-  <div class="p-v">
-    <h2 style="margin: 0">Defender <small style="font-size: .6em">(Tokens are applied via attack-options)</small></h2>
-    <app-defender-settings [defenderSubject$]="defenderSubject$"></app-defender-settings>
-  </div>
-
-  <hr>
-
-
-  <div [ngClass]="{'combined': combineView}">
-
-    <div style="display: inline-block; width: 50%;"  >
-
-      <div class="p attacker-a">
-
-        <app-attacker-settings-small [attackerSubject$]="attackerSubject1$">
-          <h2 style="margin: 0">Attack Option 1</h2>
-        </app-attacker-settings-small>
-        <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
-          <app-result [maxX$]="histogrammService.a_maxX$" [maxY$]="histogrammService.a_maxY$"  [defender$]="defenderSubject$" [attacker$]="attackerSubject1$"></app-result>
-        </div>
-      </div>
-
+<div class="app">
+    <div class="app-title-wrapper" style="text-align: center">
+        <h4 style="margin-top: 0; margin-bottom: 2px">More or less killy [TBD]</h4>
+        <!--    <img src="assets/title.png" style="max-height: 100px">-->
     </div>
-    <div style="display: inline-block; width: 50%">
-      <div class="p attacker-b">
 
-        <app-attacker-settings-small [attackerSubject$]="attackerSubject2$">
-          <h2 style="margin: 0">Attack Option 2</h2>
-        </app-attacker-settings-small>
-        <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
-          <app-result [maxX$]="histogrammService.b_maxX$" [maxY$]="histogrammService.b_maxY$" [defender$]="defenderSubject$" [attacker$]="attackerSubject2$"></app-result>
-        </div>
-      </div>
+    <div class="p-v">
+        <h2 style="margin: 0">
+            Defender
+            <small style="font-size: 0.6em">(Tokens are applied via attack-options)</small>
+        </h2>
+        <app-defender-settings [defenderSubject$]="defenderSubject$"></app-defender-settings>
     </div>
-  </div>
-  <button (click)="combineView = !combineView" >combine</button>
+
+    <hr />
+
+    <div [ngClass]="{ combined: combineView }">
+        <div style="display: inline-block; width: 50%">
+            <div class="p attacker-a">
+                <app-attacker-settings-small [attackerSubject$]="attackerSubject1$">
+                    <h2 style="margin: 0">Attack Option 1</h2>
+                </app-attacker-settings-small>
+                <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
+                    <app-result
+                        [maxX$]="histogrammService.a_maxX$"
+                        [maxY$]="histogrammService.a_maxY$"
+                        [defender$]="defenderSubject$"
+                        [attacker$]="attackerSubject1$"
+                    ></app-result>
+                </div>
+            </div>
+        </div>
+        <div style="display: inline-block; width: 50%">
+            <div class="p attacker-b">
+                <app-attacker-settings-small [attackerSubject$]="attackerSubject2$">
+                    <h2 style="margin: 0">Attack Option 2</h2>
+                </app-attacker-settings-small>
+                <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
+                    <app-result
+                        [maxX$]="histogrammService.b_maxX$"
+                        [maxY$]="histogrammService.b_maxY$"
+                        [defender$]="defenderSubject$"
+                        [attacker$]="attackerSubject2$"
+                    ></app-result>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)="combineView = !combineView">combine</button>
 </div>
-
-

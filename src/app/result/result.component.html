@@ -1,24 +1,27 @@
 <div class="result" *ngIf="wounds$">
-    <hr>
+    <hr />
     <div class="result__heading" style="position: relative; z-index: 1">
-        <h4>Avg. Wounds after {{amountOfIterations | number:'1.0-2' }} Fights:</h4>
-        <h1 style="font-size: 5em; margin-top: 0; margin-bottom: .1em; position: absolute; right: 0; top: 0">{{wounds$ | async | number:'1.0-2'}}</h1>
+        <h4>Avg. Wounds after {{ amountOfIterations | number: '1.0-2' }} Fights:</h4>
+        <h1 style="font-size: 5em; margin-top: 0; margin-bottom: 0.1em; position: absolute; right: 0; top: 0">
+            {{ wounds$ | async | number: '1.0-2' }}
+        </h1>
     </div>
 
     <div class="graph">
-        <div class="block block--fake" style="width: 1px; height: 100%;"></div>
-        <div class="block" *ngFor="let d of (distribution$ | async); trackBy: trackByWound"
-             [style.height.%]="d.count / maxDistribution * 100">
-<!--            <span style="transform: rotate(-90deg) translate(100%, 0); text-align: left">{{d.count}}</span>-->
-            <span>{{d.wounds}}</span>
+        <div class="block block--fake" style="width: 1px; height: 100%"></div>
+        <div
+            class="block"
+            *ngFor="let d of distribution$ | async; trackBy: trackByWound"
+            [style.height.%]="(d.count / maxDistribution) * 100"
+        >
+            <!--            <span style="transform: rotate(-90deg) translate(100%, 0); text-align: left">{{d.count}}</span>-->
+            <span>{{ d.wounds }}</span>
         </div>
     </div>
     <div class="result__details">
-        <h2>Panic tests failed: {{panicTestsFailed$ | async | number:'1.0-2' }}%</h2>
-        <h3>Zero wounds: {{attacksWithZeroWounds$ | async | number:'1.0-2' }}%</h3>
-        <h3>Max wounds: {{maxWounds$ | async }} </h3>
-        <h3>Whipes (12 wounds min): {{whipes$ | async | number:'1.0-5' }}% </h3>
+        <h2>Panic tests failed: {{ panicTestsFailed$ | async | number: '1.0-2' }}%</h2>
+        <h3>Zero wounds: {{ attacksWithZeroWounds$ | async | number: '1.0-2' }}%</h3>
+        <h3>Max wounds: {{ maxWounds$ | async }}</h3>
+        <h3>Whipes (12 wounds min): {{ whipes$ | async | number: '1.0-5' }}%</h3>
     </div>
-
 </div>
-

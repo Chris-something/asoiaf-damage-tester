@@ -1,22 +1,23 @@
-import {Injectable} from "@angular/core";
-import {BehaviorSubject, combineLatest, Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class HistogrammService {
+    a_maxX$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+    a_maxY$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  a_maxX$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  a_maxY$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+    b_maxX$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+    b_maxY$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  b_maxX$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  b_maxY$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-
-  combinedMaxForX$: Observable<number> = combineLatest([this.a_maxX$, this.b_maxX$]).pipe(map(([a, b]) => {
-  return Math.max(a, b)
-  }));
-  combinedMaxForY$: Observable<number> = combineLatest([this.a_maxY$, this.b_maxY$]).pipe(map(([a, b]) => {
-    return Math.max(a, b)
-}));
-
-
+    combinedMaxForX$: Observable<number> = combineLatest([this.a_maxX$, this.b_maxX$]).pipe(
+        map(([a, b]) => {
+            return Math.max(a, b);
+        })
+    );
+    combinedMaxForY$: Observable<number> = combineLatest([this.a_maxY$, this.b_maxY$]).pipe(
+        map(([a, b]) => {
+            return Math.max(a, b);
+        })
+    );
 }
