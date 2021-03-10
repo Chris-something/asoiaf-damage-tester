@@ -83,15 +83,15 @@ const getWounds = (attacker: IAttacker, defender: IDefender): IRes => {
   attackDice = attacker.reroll ? reroll(attackDice, attacker.toHit) : attackDice; // reroll
   attackDice = attacker.weakened ? reroll(attackDice, attacker.toHit, false) : attackDice; // weakened
 
-  const _toDefend = toDefend(attackDice, attacker);
-  const _precisionWounds = precisionWounds(attackDice, attacker);
+  const _toDefend = toDefend(attackDice, attacker); // number of hits that need and allow def-roll
+  const _precisionWounds = precisionWounds(attackDice, attacker); // precision
 
-  let defDice = rollSequenceD6(_toDefend);
-  const defence = attacker.sundering ? defender.def + 1 : defender.def;
-  defDice = attacker.vulnerable ? reroll(defDice, defence, false) : defDice;
+  let defDice = rollSequenceD6(_toDefend); // roll def
+  const defence = attacker.sundering ? defender.def + 1 : defender.def; // sundering
+  defDice = attacker.vulnerable ? reroll(defDice, defence, false) : defDice; // vulnerable
   const successfullyDefended = successfulDefended(defDice, defence);
 
-  const totalWounds = _toDefend - successfullyDefended + _precisionWounds;
+  const totalWounds = _toDefend - successfullyDefended + _precisionWounds; // wounds from attack
   const panicDamageTheoretically = getPanicDamage(defender, attacker);
   const testFailed = panicDamageTheoretically > 0;
   const panicDamageReal = testFailed && totalWounds ? panicDamageTheoretically : 0;

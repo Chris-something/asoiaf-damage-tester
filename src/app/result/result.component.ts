@@ -47,25 +47,26 @@ export class ResultComponent implements OnInit {
     }
 
     iterate(): Observable<IRes[]> {
+        let worker;
+        if (typeof Worker !== 'undefined') {
+            worker = new Worker('../app.worker', {type: 'module'});
+        }
+        else {
+            alert('Your Browser isn´t supporting Web-Workers');
+        }
         return combineLatest([this.attacker$.pipe(filter((_) => !!_)), this.defender$.pipe(filter((_) => !!_))]).pipe(
-            debounceTime(40),
+            debounceTime(300),
             switchMap(([attacker, defender]) => {
 
                 const subject: Subject<IRes[]> = new Subject<IRes[]>();
 
-                if (typeof Worker !== 'undefined') {
-                    // Create a new
-                    const worker = new Worker('../app.worker', { type: 'module' });
+                if (worker) {
                     worker.onmessage = ({ data }) => {
                         subject.next(data);
                     };
                     worker.postMessage({ iterations: this.amountOfIterations, attacker, defender });
-                } else {
-                    console.error('unsupported');
                 }
-
                 return subject.asObservable();
-                //return this.iterationArray.map((_) => this.getWounds(attacker, defender));
             }),
             share()
         );

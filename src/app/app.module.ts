@@ -12,7 +12,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { SequenceComponent } from './sequence/sequence.component';
 import { DefenderSettingsComponent } from './defender-settings/defender-settings.component';
-import { AttackerSettingsComponent } from './_depr/attacker-settings/attacker-settings.component';
 import { ResultComponent } from './result/result.component';
 import { AttackerSettingsSmallComponent } from './attacker-settings-small/attacker-settings.component';
 import { MatSelectModule } from '@angular/material/select';
@@ -38,7 +37,6 @@ import {CounterInputComponent} from "./controls/counter/counter-input.component"
         AppComponent,
         SequenceComponent,
         DefenderSettingsComponent,
-        AttackerSettingsComponent,
         ResultComponent,
         AttackerSettingsSmallComponent,
         HistogrammsComponent,

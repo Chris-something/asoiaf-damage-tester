@@ -11,13 +11,13 @@ export class HistogrammService {
     b_maxY$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
     combinedMaxForX$: Observable<number> = combineLatest([this.a_maxX$, this.b_maxX$]).pipe(
-        debounceTime(10),
+        // debounceTime(20),
         map(([a, b]) => {
             return Math.max(a, b);
         })
     );
     combinedMaxForY$: Observable<number> = combineLatest([this.a_maxY$, this.b_maxY$]).pipe(
-        debounceTime(10),
+        // debounceTime(20),
         map(([a, b]) => {
             return Math.max(a, b);
         })
