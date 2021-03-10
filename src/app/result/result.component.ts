@@ -28,7 +28,6 @@ export class ResultComponent implements OnInit {
 
     distribution$: Observable<{ wounds: number; count: number }[]>;
     maxDistribution$: Observable<number>;
-    maxDistribution: number;
 
     constructor(private histogrammService: HistogrammService) {}
 
@@ -45,7 +44,6 @@ export class ResultComponent implements OnInit {
         this.maxDistribution$.subscribe((m) => this.maxY$.next(m));
         this.distribution$.subscribe((d) => this.maxX$.next(d.length));
 
-        this.histogrammService.combinedMaxForY$.subscribe((y) => (this.maxDistribution = y));
     }
 
     iterate(): Observable<IRes[]> {

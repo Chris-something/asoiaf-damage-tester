@@ -27,10 +27,6 @@ body {
     /*box-shadow: rgba(0,0,0,.5) 0 0 20px 26px;*/
 }
 
-h4 {
-    margin-bottom: 10px;
-}
-
 .app-title-wrapper {
     perspective: 500px;
 }
@@ -51,6 +47,9 @@ h4 {
     font-size: 0.5em;
 }
 
+/**
+ *   Generic / Layout
+ */
 .box {
     /*margin: 0 auto 20px;*/
     /*border-radius: 20px;*/
@@ -77,6 +76,13 @@ h4 {
     vertical-align: middle;
 }
 
+h4 {
+    margin-bottom: 10px;
+}
+
+/**
+ *   Token Toggles
+ */
 .token-toggle {
     display: inline-block;
     margin: 0 10px;
@@ -109,15 +115,6 @@ h4 {
     opacity: 1;
 }
 
-/*.token-toggle--weakened input:checked + .token-toggle-wrapper {*/
-/*  top: 20px;*/
-/*}*/
-
-/*.token-toggle--panicked input:checked + .token-toggle-wrapper,*/
-/*.token-toggle--vulnerable input:checked + .token-toggle-wrapper {*/
-/*  top: -20px;*/
-/*}*/
-
 .token-toggle input {
     display: none;
 }
@@ -128,39 +125,11 @@ h4 {
     border-radius: 10px !important;
 }
 
+/**
+ *   Material Overrides
+ */
 .mat-slide-toggle-thumb-container {
     top: 0 !important;
-}
-
-.graph {
-    height: 150px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    white-space: nowrap;
-    padding-bottom: 20px;
-    overflow: hidden;
-    position: relative;
-    left: 0%;
-    transition: 0.4s;
-    width: 100%;
-}
-
-.block {
-    vertical-align: baseline;
-    display: inline-block;
-    margin: 0 0.5%;
-    position: relative;
-    transition: 0.3s;
-    width: 4%;
-    //
-    .attacker-a & {
-        background: rgba(255, 100, 100, 1);
-    }
-    .attacker-b & {
-        //border: 1px solid;
-        background: rgba(200, 240, 255, 1);
-        // background: rgba(200,200,255,.5);
-    }
 }
 
 .attacker-a .result__heading h1 {
@@ -171,56 +140,3 @@ h4 {
     color: rgba(200, 240, 255, 1);
 }
 
-.block--fake {
-    opacity: 0;
-    width: 0 !important;
-    margin: 0 !important;
-}
-
-.block > span {
-    font-size: 12px;
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    bottom: -20px;
-    left: 0;
-}
-
-.combined {
-    // perspective: 1000px;
-}
-
-.combined .graph {
-    margin-top: 100px;
-    height: 250px;
-    width: 200%;
-    .block:not(.block--fake) {
-        width: 1.5% !important;
-        margin-right: 3%;
-    }
-}
-
-.attacker-a {
-    .result__details {
-        //border-right: 1px solid;
-    }
-}
-
-.combined .attacker-a .graph {
-    .block {
-        background: rgba(255, 100, 100, 1);
-        color: rgba(255, 100, 100, 1);
-    }
-    left: calc(0px); // 33px
-    // transform: rotate3d(0, 0, 0, 15deg) translate3d(0px, 0px, 0px);
-}
-
-.combined .attacker-b .graph {
-    .block {
-    }
-    left: calc(-50vw + 30px);
-    // transform: rotate3d(0, 0, 0, 15deg) ;
-    .block {
-        transform: translate3d(100%, 0, 0);
-    }
-}

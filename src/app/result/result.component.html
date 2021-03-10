@@ -6,18 +6,11 @@
             {{ wounds$ | async | number: '1.0-2' }}
         </h1>
     </div>
-
-    <div class="graph">
-        <div class="block block--fake" style="width: 1px; height: 100%"></div>
-        <div
-            class="block"
-            *ngFor="let d of distribution$ | async; trackBy: trackByWound"
-            [style.height.%]="(d.count / maxDistribution) * 100"
-        >
-            <!--            <span style="transform: rotate(-90deg) translate(100%, 0); text-align: left">{{d.count}}</span>-->
-            <span>{{ d.wounds }}</span>
-        </div>
-    </div>
+    <app-histogramm
+        [distribution]="distribution$ | async"
+        [maxDistributionY]="histogrammService.combinedMaxForY$ | async"
+        [maxDistributionX]="histogrammService.combinedMaxForX$ | async"
+    ></app-histogramm>
     <div class="result__details">
         <h2>Panic tests failed: {{ panicTestsFailed$ | async | number: '1.0-2' }}%</h2>
         <h3>Zero wounds: {{ attacksWithZeroWounds$ | async | number: '1.0-2' }}%</h3>
