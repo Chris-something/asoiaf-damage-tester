@@ -1,15 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { IAttacker, IDefender } from '../app.component';
-import { debounceTime, map, share } from 'rxjs/operators';
+import { debounceTime, filter, map, share, switchMap } from 'rxjs/operators';
 import { HistogrammService } from '../histogramm.service';
-
-interface IRes {
-    failedPanicTest: boolean;
-    damageFromPanic: number;
-    damageFromAttackOnly: number;
-    totalWounds: number;
-}
+import { IRes } from '../interfaces';
 
 @Component({
     selector: 'app-result',
@@ -23,8 +17,7 @@ export class ResultComponent implements OnInit {
     @Input() maxX$: BehaviorSubject<number>;
     @Input() maxY$: BehaviorSubject<number>;
 
-    amountOfIterations = 250000;
-    private iterationArray = this.arrayFromLength(this.amountOfIterations);
+    amountOfIterations = 300000;
 
     iteration$: Observable<IRes[]>;
     wounds$: Observable<number>;
@@ -56,10 +49,25 @@ export class ResultComponent implements OnInit {
     }
 
     iterate(): Observable<IRes[]> {
-        return combineLatest([this.attacker$, this.defender$]).pipe(
-            debounceTime(400),
-            map(([attacker, defender]) => {
-                return this.iterationArray.map((_) => this.getWounds(attacker, defender));
+        return combineLatest([this.attacker$.pipe(filter((_) => !!_)), this.defender$.pipe(filter((_) => !!_))]).pipe(
+            debounceTime(40),
+            switchMap(([attacker, defender]) => {
+
+                const subject: Subject<IRes[]> = new Subject<IRes[]>();
+
+                if (typeof Worker !== 'undefined') {
+                    // Create a new
+                    const worker = new Worker('../app.worker', { type: 'module' });
+                    worker.onmessage = ({ data }) => {
+                        subject.next(data);
+                    };
+                    worker.postMessage({ iterations: this.amountOfIterations, attacker, defender });
+                } else {
+                    console.error('unsupported');
+                }
+
+                return subject.asObservable();
+                //return this.iterationArray.map((_) => this.getWounds(attacker, defender));
             }),
             share()
         );
@@ -89,6 +97,7 @@ export class ResultComponent implements OnInit {
 
     getDistribution() {
         return combineLatest([this.iteration$, this.maxWounds$]).pipe(
+            debounceTime(100),
             map(([res, maxWounds]) => {
                 const dist = this.arrayFromLength(maxWounds + 1);
                 const returnThis = dist.reduce((prev, curr) => {
@@ -151,95 +160,95 @@ export class ResultComponent implements OnInit {
             })
         );
     }
-    getWounds(attacker: IAttacker, defender: IDefender): IRes {
-        let attackDice = this.rollSequenceD6(attacker.diceCount);
+    // getWounds(attacker: IAttacker, defender: IDefender): IRes {
+    //     let attackDice = this.rollSequenceD6(attacker.diceCount);
+    //
+    //     attackDice = attacker.reroll ? this.reroll(attackDice, attacker.toHit) : attackDice; // reroll
+    //     attackDice = attacker.weakened ? this.reroll(attackDice, attacker.toHit, false) : attackDice; // weakened
+    //
+    //     const toDefend = this.toDefend(attackDice, attacker);
+    //     const precisionWounds = this.precisionWounds(attackDice, attacker);
+    //
+    //     let defDice = this.rollSequenceD6(toDefend);
+    //     const defence = attacker.sundering ? defender.def + 1 : defender.def;
+    //     defDice = attacker.vulnerable ? this.reroll(defDice, defence, false) : defDice;
+    //     const successfullyDefended = this.successfulDefended(defDice, defence);
+    //
+    //     const totalWounds = toDefend - successfullyDefended + precisionWounds;
+    //     const panicDamageTheoretically = this.getPanicDamage(defender, attacker);
+    //     const testFailed = panicDamageTheoretically > 0;
+    //     const panicDamageReal = testFailed && totalWounds ? panicDamageTheoretically : 0;
+    //     return {
+    //         failedPanicTest: testFailed,
+    //         damageFromAttackOnly: totalWounds,
+    //         damageFromPanic: panicDamageReal,
+    //         totalWounds: totalWounds + panicDamageReal,
+    //     };
+    // }
 
-        attackDice = attacker.reroll ? this.reroll(attackDice, attacker.toHit) : attackDice; // reroll
-        attackDice = attacker.weakened ? this.reroll(attackDice, attacker.toHit, false) : attackDice; // weakened
+    // getPanicDamage(defender: IDefender, attacker: IAttacker): number {
+    //     const targetMorale = attacker.vicious ? Math.min(defender.morale + 2, 12) : defender.morale;
+    //     let res1 = this.d(6);
+    //     let res2 = this.d(6);
+    //     let pDamag = this.d(3);
+    //     if (attacker.panicked && res1 + res2 >= targetMorale) {
+    //         if (targetMorale >= 8) {
+    //             res1 = res1 >= 4 ? this.d(6) : res1;
+    //             res2 = res2 >= 4 ? this.d(6) : res2;
+    //         } else {
+    //             res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
+    //             res2 = res2 > targetMorale / 2 ? this.d(6) : res2;
+    //         }
+    //
+    //         pDamag = pDamag < 2 ? this.d(3) : pDamag;
+    //     }
+    //     const tototalDamage = Math.max(pDamag + attacker.extradDamageOnFailedPanictest, 0);
+    //     return res1 + res2 < targetMorale ? tototalDamage : 0;
+    // }
 
-        const toDefend = this.toDefend(attackDice, attacker);
-        const precisionWounds = this.precisionWounds(attackDice, attacker);
+    // private successfulDefended(sequence: number[], target): number {
+    //     return sequence.filter((r) => r >= target).length;
+    // }
 
-        let defDice = this.rollSequenceD6(toDefend);
-        const defence = attacker.sundering ? defender.def + 1 : defender.def;
-        defDice = attacker.vulnerable ? this.reroll(defDice, defence, false) : defDice;
-        const successfullyDefended = this.successfulDefended(defDice, defence);
+    // private precisionWounds(sequence: number[], attacker: IAttacker): number {
+    //     const sixes = sequence.filter((r) => r === 6).length;
+    //     return attacker.precision ? sixes : 0;
+    // }
 
-        const totalWounds = toDefend - successfullyDefended + precisionWounds;
-        const panicDamageTheoretically = this.getPanicDamage(defender, attacker);
-        const testFailed = panicDamageTheoretically > 0;
-        const panicDamageReal = testFailed && totalWounds ? panicDamageTheoretically : 0;
-        return {
-            failedPanicTest: testFailed,
-            damageFromAttackOnly: totalWounds,
-            damageFromPanic: panicDamageReal,
-            totalWounds: totalWounds + panicDamageReal,
-        };
-    }
-
-    getPanicDamage(defender: IDefender, attacker: IAttacker): number {
-        const targetMorale = attacker.vicious ? Math.min(defender.morale + 2, 12) : defender.morale;
-        let res1 = this.d(6);
-        let res2 = this.d(6);
-        let pDamag = this.d(3);
-        if (attacker.panicked && res1 + res2 >= targetMorale) {
-            if (targetMorale >= 8) {
-                res1 = res1 >= 4 ? this.d(6) : res1;
-                res2 = res2 >= 4 ? this.d(6) : res2;
-            } else {
-                res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
-                res2 = res2 > targetMorale / 2 ? this.d(6) : res2;
-            }
-
-            pDamag = pDamag < 2 ? this.d(3) : pDamag;
-        }
-        const tototalDamage = Math.max(pDamag + attacker.extradDamageOnFailedPanictest, 0);
-        return  res1 + res2 < targetMorale ? tototalDamage : 0;
-    }
-
-    private successfulDefended(sequence: number[], target): number {
-        return sequence.filter((r) => r >= target).length;
-    }
-
-    private precisionWounds(sequence: number[], attacker: IAttacker): number {
-        const sixes = sequence.filter((r) => r === 6).length;
-        return attacker.precision ? sixes : 0;
-    }
-
-    private toDefend(sequence: number[], attacker: IAttacker): number {
-        const hitsWithoutSixes = sequence.filter((r) => r >= attacker.toHit && r !== 6).length;
-        const sixes = sequence.filter((r) => r === 6).length;
-        if (!attacker.critBlow && attacker.precision) {
-            return hitsWithoutSixes;
-        } else if (!attacker.critBlow || (attacker.critBlow && attacker.precision)) {
-            return hitsWithoutSixes + sixes;
-        } else {
-            return hitsWithoutSixes + sixes * 2;
-        }
-    }
-
-    private reroll(sequence: number[], target, misses = true): Array<number> {
-        return sequence.map((orig) => {
-            let d = orig;
-            if (misses && orig < target) {
-                d = this.d(6);
-            }
-            if (!misses && orig >= target) {
-                d = this.d(6);
-            }
-            return d;
-        });
-    }
-
-    private rollSequenceD6(length: number): Array<number> {
-        return this.arrayFromLength(length).map((_) => this.d(6));
-    }
+    // private toDefend(sequence: number[], attacker: IAttacker): number {
+    //     const hitsWithoutSixes = sequence.filter((r) => r >= attacker.toHit && r !== 6).length;
+    //     const sixes = sequence.filter((r) => r === 6).length;
+    //     if (!attacker.critBlow && attacker.precision) {
+    //         return hitsWithoutSixes;
+    //     } else if (!attacker.critBlow || (attacker.critBlow && attacker.precision)) {
+    //         return hitsWithoutSixes + sixes;
+    //     } else {
+    //         return hitsWithoutSixes + sixes * 2;
+    //     }
+    // }
+    //
+    // private reroll(sequence: number[], target, misses = true): Array<number> {
+    //     return sequence.map((orig) => {
+    //         let d = orig;
+    //         if (misses && orig < target) {
+    //             d = this.d(6);
+    //         }
+    //         if (!misses && orig >= target) {
+    //             d = this.d(6);
+    //         }
+    //         return d;
+    //     });
+    // }
+    //
+    // private rollSequenceD6(length: number): Array<number> {
+    //     return this.arrayFromLength(length).map((_) => this.d(6));
+    // }
 
     private arrayFromLength(length: number): Array<number> {
         return Array.from(Array(length).keys());
     }
 
-    private d(sides: number): number {
-        return 1 + Math.floor(Math.random() * sides);
-    }
+    // private d(sides: number): number {
+    //     return 1 + Math.floor(Math.random() * sides);
+    // }
 }
