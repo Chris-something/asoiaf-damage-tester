@@ -3,16 +3,17 @@
         <ng-content></ng-content>
 
         <h4>Dice</h4>
-        <mat-button-toggle-group formControlName="diceCount" aria-label="Morale of defender">
-            <mat-button-toggle [value]="2">2</mat-button-toggle>
-            <mat-button-toggle [value]="3">3</mat-button-toggle>
-            <mat-button-toggle [value]="4">4</mat-button-toggle>
-            <mat-button-toggle [value]="5">5</mat-button-toggle>
-            <mat-button-toggle [value]="6">6</mat-button-toggle>
-            <mat-button-toggle [value]="7">7</mat-button-toggle>
-            <mat-button-toggle [value]="8">8</mat-button-toggle>
-            <mat-button-toggle [value]="9">9</mat-button-toggle>
-        </mat-button-toggle-group>
+        <app-counter-input [counterRangeMin]="2" [counterRangeMin]="12" formControlName="diceCount"></app-counter-input>
+<!--        <mat-button-toggle-group formControlName="diceCount" aria-label="Morale of defender">-->
+<!--            <mat-button-toggle [value]="2">2</mat-button-toggle>-->
+<!--            <mat-button-toggle [value]="3">3</mat-button-toggle>-->
+<!--            <mat-button-toggle [value]="4">4</mat-button-toggle>-->
+<!--            <mat-button-toggle [value]="5">5</mat-button-toggle>-->
+<!--            <mat-button-toggle [value]="6">6</mat-button-toggle>-->
+<!--            <mat-button-toggle [value]="7">7</mat-button-toggle>-->
+<!--            <mat-button-toggle [value]="8">8</mat-button-toggle>-->
+<!--            <mat-button-toggle [value]="9">9</mat-button-toggle>-->
+<!--        </mat-button-toggle-group>-->
 
         <div>
             <h4>To Hit</h4>
@@ -43,17 +44,17 @@
         <div class="u-mb">
             <label class="token-toggle token-toggle--weakened"
                 ><input type="checkbox" formControlName="weakened" />
-                <span class="token-toggle-wrapper"><img src="assets/WeakenedToken.png" /></span>
+                <span class="token-toggle-wrapper"><img src="../../../assets/WeakenedToken.png" /></span>
             </label>
 
             <label class="token-toggle token-toggle--vulnerable"
                 ><input type="checkbox" formControlName="vulnerable" />
-                <span class="token-toggle-wrapper"><img src="assets/VulnerableToken.png" /></span>
+                <span class="token-toggle-wrapper"><img src="../../../assets/VulnerableToken.png" /></span>
             </label>
 
             <label class="token-toggle token-toggle--panicked"
                 ><input type="checkbox" formControlName="panicked" />
-                <span class="token-toggle-wrapper"><img src="assets/PanicToken.png" /></span>
+                <span class="token-toggle-wrapper"><img src="../../../assets/PanicToken.png" /></span>
             </label>
         </div>
 

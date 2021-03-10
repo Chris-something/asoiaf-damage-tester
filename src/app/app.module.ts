@@ -12,12 +12,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { SequenceComponent } from './sequence/sequence.component';
 import { DefenderSettingsComponent } from './defender-settings/defender-settings.component';
-import { AttackerSettingsComponent } from './attacker-settings/attacker-settings.component';
+import { AttackerSettingsComponent } from './_depr/attacker-settings/attacker-settings.component';
 import { ResultComponent } from './result/result.component';
 import { AttackerSettingsSmallComponent } from './attacker-settings-small/attacker-settings.component';
 import { MatSelectModule } from '@angular/material/select';
 import { HistogrammService } from './histogramm.service';
 import { HistogrammsComponent } from './histogramms/histogramms.component';
+import {CounterInputComponent} from "./controls/counter/counter-input.component";
 
 @NgModule({
     imports: [
@@ -41,6 +42,7 @@ import { HistogrammsComponent } from './histogramms/histogramms.component';
         ResultComponent,
         AttackerSettingsSmallComponent,
         HistogrammsComponent,
+        CounterInputComponent
     ],
     providers: [HistogrammService],
     bootstrap: [AppComponent],

@@ -193,8 +193,8 @@ export class ResultComponent implements OnInit {
 
             pDamag = pDamag < 2 ? this.d(3) : pDamag;
         }
-        const w = res1 + res2 < targetMorale ? pDamag + attacker.extradDamageOnFailedPanictest : 0;
-        return w;
+        const tototalDamage = Math.max(pDamag + attacker.extradDamageOnFailedPanictest, 0);
+        return  res1 + res2 < targetMorale ? tototalDamage : 0;
     }
 
     private successfulDefended(sequence: number[], target): number {
