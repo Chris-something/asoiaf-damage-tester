@@ -1,16 +1,27 @@
 <div class="graph" *ngIf="distribution">
 <!--    <div class="block block&#45;&#45;fake" style="width: 1px; height: 100%"></div>-->
     <div class="histogramm">
+
+          <span *ngIf="maxDistributionY > total / 2"
+                  class="mark" [style.top.%]="100 - ((total / 2) / maxDistributionY) * 100">
+            <span class="mark__label">50%</span>
+        </span>
+        <span class="mark" [style.top.%]="100 - ((total / 4) / maxDistributionY) * 100">
+            <span class="mark__label">25%</span>
+        </span>
+        <span class="mark" [style.top.%]="100 - ((total / 10) / maxDistributionY) * 100">
+            <span class="mark__label">10%</span>
+        </span>
+        <!-- [style.top.%]="distribution[n] ? 100 - (distribution[n].count / maxDistributionY) * 100 : 100" -->
         <div
                 class="block"
-                *ngFor="let n of _distIterator; trackBy: trackByWound"
-                [style.top.%]="distribution[n] ? 100 - (distribution[n].count / maxDistributionY) * 100 : 100"
+                *ngFor="let n of _distIterator; trackBy: trackByIndex"
+
                 [style.height.%]="distribution[n] ? (distribution[n].count / maxDistributionY) * 100 : 0"
                 [style.width.%]="(100 /_distIterator.length) / 2"
                 [style.left.%]="(100 /_distIterator.length) * n"
         >
             <div class="block__inner"></div>
-            <!--            <span style="transform: rotate(-90deg) translate(100%, 0); text-align: left">{{d.count}}</span>-->
             <span>{{ n }}</span>
         </div>
     </div>

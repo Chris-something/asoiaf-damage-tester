@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {debounceTime, map} from 'rxjs/operators';
 
 @Injectable()
 export class HistogrammService {
@@ -11,11 +11,13 @@ export class HistogrammService {
     b_maxY$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
     combinedMaxForX$: Observable<number> = combineLatest([this.a_maxX$, this.b_maxX$]).pipe(
+        debounceTime(10),
         map(([a, b]) => {
             return Math.max(a, b);
         })
     );
     combinedMaxForY$: Observable<number> = combineLatest([this.a_maxY$, this.b_maxY$]).pipe(
+        debounceTime(10),
         map(([a, b]) => {
             return Math.max(a, b);
         })

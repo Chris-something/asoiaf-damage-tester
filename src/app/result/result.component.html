@@ -8,6 +8,7 @@
     </div>
     <app-histogramm
         [distribution]="distribution$ | async"
+        [total]="amountOfIterations"
         [maxDistributionY]="histogrammService.combinedMaxForY$ | async"
         [maxDistributionX]="histogrammService.combinedMaxForX$ | async"
     ></app-histogramm>

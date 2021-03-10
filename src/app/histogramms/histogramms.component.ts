@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'app-histogramm',
@@ -10,6 +10,8 @@ export class HistogrammsComponent implements OnInit {
 
     _distIterator = [];
 
+
+    @Input() total = 0;
     @Input() distribution = [];
     @Input() maxDistributionY = 0;
     @Input() set maxDistributionX(max) {
@@ -18,7 +20,8 @@ export class HistogrammsComponent implements OnInit {
 
     ngOnInit() {}
 
-    trackByWound(index, item) {
-        return item;
+
+    trackByIndex(index, item) {
+        return index + 1;
     }
 }
