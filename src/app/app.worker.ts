@@ -82,7 +82,7 @@ const getWounds = (attacker: IAttacker, defender: IDefender): IRes => {
 }
 
 const getPanicDamage = (defender: IDefender, attacker: IAttacker): number => {
-  const targetMorale = attacker.vicious ? Math.min(defender.morale + 2, 12) : defender.morale;
+  const targetMorale =  Math.min(Math.max(defender.morale + attacker.modifyDefenderMorale, 2), 12);
   let res1 = d(6);
   let res2 = d(6);
   let pDamag = d(3);
@@ -97,7 +97,7 @@ const getPanicDamage = (defender: IDefender, attacker: IAttacker): number => {
 
     pDamag = pDamag < 2 ? d(3) : pDamag;
   }
-  const tototalDamage = Math.max(pDamag + attacker.extradDamageOnFailedPanictest, 0);
+  const tototalDamage = Math.max(pDamag + attacker.modifyDamageOnFailedPanictest, 0);
   return  res1 + res2 < targetMorale ? tototalDamage : 0;
 }
 

@@ -13,7 +13,8 @@ import {IAttacker} from "../interfaces";
 export class AttackerSettingsSmallComponent implements OnInit {
     diceCount: FormControl = new FormControl(7);
     toHit: FormControl = new FormControl(4);
-    extradDamageOnFailedPanictest: FormControl = new FormControl(0);
+    modifyDamageOnFailedPanictest: FormControl = new FormControl(0);
+    modifyDefenderMorale: FormControl = new FormControl(0);
 
     weakened: FormControl = new FormControl(false);
     vulnerable: FormControl = new FormControl(false);
@@ -21,7 +22,6 @@ export class AttackerSettingsSmallComponent implements OnInit {
 
     sundering: FormControl = new FormControl(false);
     critBlow: FormControl = new FormControl(false);
-    vicious: FormControl = new FormControl(false);
     precision: FormControl = new FormControl(false);
 
     reroll: FormControl = new FormControl(false);
@@ -34,10 +34,10 @@ export class AttackerSettingsSmallComponent implements OnInit {
         panicked: this.panicked,
         sundering: this.sundering,
         critBlow: this.critBlow,
-        vicious: this.vicious,
         precision: this.precision,
         reroll: this.reroll,
-        extradDamageOnFailedPanictest: this.extradDamageOnFailedPanictest,
+        modifyDamageOnFailedPanictest: this.modifyDamageOnFailedPanictest,
+        modifyDefenderMorale: this.modifyDefenderMorale
     });
 
     @Input() attackerSubject$: Subject<IAttacker>;

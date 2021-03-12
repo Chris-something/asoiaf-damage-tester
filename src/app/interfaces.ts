@@ -14,13 +14,14 @@ export interface IDefender {
 export interface IAttacker {
   diceCount: number;
   toHit: number;
-  extradDamageOnFailedPanictest: number;
+  modifyDamageOnFailedPanictest: number;
+  modifyDefenderMorale: number;
   reroll: boolean;
   weakened: boolean;
   vulnerable: boolean;
   panicked: boolean;
   sundering: boolean;
   critBlow: boolean;
-  vicious: boolean;
+  // vicious: boolean;
   precision: boolean;
 }

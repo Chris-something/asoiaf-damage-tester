@@ -12,9 +12,15 @@
         </div>
 
         <div class="u-mb il">
-            <h4>Modify panic-damage</h4>
-            <app-counter-input [counterRangeMin]="-3" [counterRangeMax]="5" formControlName="extradDamageOnFailedPanictest"></app-counter-input>
+            <h4>Modify morale</h4>
+            <app-counter-input [counterRangeMin]="-10" [counterRangeMax]="10" formControlName="modifyDefenderMorale"></app-counter-input>
         </div>
+
+        <div class="u-mb il">
+            <h4>Modify panic-damage</h4>
+            <app-counter-input [counterRangeMin]="-3" [counterRangeMax]="5" formControlName="modifyDamageOnFailedPanictest"></app-counter-input>
+        </div>
+
 
         <div>
             <div class="il u-mb">
@@ -42,7 +48,6 @@
         <div>
             <mat-slide-toggle formControlName="sundering">Sundering</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-slide-toggle formControlName="critBlow">Critical Blow</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
-            <mat-slide-toggle formControlName="vicious">Vicious</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-slide-toggle formControlName="precision">Precision</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
