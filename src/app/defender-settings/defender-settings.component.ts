@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { startWith } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { IDefender } from '../app.component';
+import {IDefender} from "../interfaces";
 
 @Component({
     selector: 'app-defender-settings',

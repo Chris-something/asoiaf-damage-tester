@@ -1,30 +1,8 @@
 /// <reference lib="webworker" />
 
-interface IDefender {
-  def: number;
-  morale: number;
-}
 
-interface IAttacker {
-  diceCount: number;
-  toHit: number;
-  extradDamageOnFailedPanictest: number;
-  reroll: boolean;
-  weakened: boolean;
-  vulnerable: boolean;
-  panicked: boolean;
-  sundering: boolean;
-  critBlow: boolean;
-  vicious: boolean;
-  precision: boolean;
-}
 
-interface IRes {
-  failedPanicTest: boolean;
-  damageFromPanic: number;
-  damageFromAttackOnly: number;
-  totalWounds: number;
-}
+import {IRes, IAttacker, IDefender} from "./interfaces";
 
 addEventListener('message', ({data}) => {
   const res = processWounds(data.iterations, data.attacker, data.defender);

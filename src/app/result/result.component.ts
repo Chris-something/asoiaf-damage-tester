@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
-import { IAttacker, IDefender } from '../app.component';
 import { debounceTime, filter, map, share, switchMap } from 'rxjs/operators';
 import { HistogrammService } from '../histogramm.service';
-import { IRes } from '../interfaces';
+import {IAttacker, IDefender, IRes} from '../interfaces';
 
 @Component({
     selector: 'app-result',

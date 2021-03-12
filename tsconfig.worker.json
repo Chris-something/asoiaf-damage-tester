@@ -10,6 +10,6 @@
     "types": []
   },
   "include": [
-    "src/**/*.worker.ts", "**/*.d.ts"
+    "src/**/*.worker.ts", "src/app/interfaces.ts", "**/*.d.ts"
   ]
 }
