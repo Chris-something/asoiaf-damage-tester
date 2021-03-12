@@ -16,7 +16,7 @@ export interface IAttacker {
   toHit: number;
   autoHits: number;
   modifyDamageOnFailedPanictest: number;
-  modifyDefenderMorale: number;
+  modifyDefenderPanicTest: number;
   reroll: boolean;
   weakened: boolean;
   vulnerable: boolean;

@@ -14,7 +14,7 @@ export class AttackerSettingsSmallComponent implements OnInit {
     diceCount: FormControl = new FormControl(7);
     toHit: FormControl = new FormControl(4);
     modifyDamageOnFailedPanictest: FormControl = new FormControl(0);
-    modifyDefenderMorale: FormControl = new FormControl(0);
+    modifyDefenderPanicTest: FormControl = new FormControl(0);
     autoHits: FormControl = new FormControl(0);
 
     weakened: FormControl = new FormControl(false);
@@ -41,7 +41,7 @@ export class AttackerSettingsSmallComponent implements OnInit {
         noDefenseRolls: this.precision,
         reroll: this.reroll,
         modifyDamageOnFailedPanictest: this.modifyDamageOnFailedPanictest,
-        modifyDefenderMorale: this.modifyDefenderMorale
+        modifyDefenderPanicTest: this.modifyDefenderPanicTest
     });
 
     @Input() attackerSubject$: Subject<IAttacker>;
