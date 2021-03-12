@@ -15,6 +15,7 @@ export class AttackerSettingsSmallComponent implements OnInit {
     toHit: FormControl = new FormControl(4);
     modifyDamageOnFailedPanictest: FormControl = new FormControl(0);
     modifyDefenderMorale: FormControl = new FormControl(0);
+    autoHits: FormControl = new FormControl(0);
 
     weakened: FormControl = new FormControl(false);
     vulnerable: FormControl = new FormControl(false);
@@ -23,18 +24,21 @@ export class AttackerSettingsSmallComponent implements OnInit {
     sundering: FormControl = new FormControl(false);
     critBlow: FormControl = new FormControl(false);
     precision: FormControl = new FormControl(false);
+    noDefenseRolls: FormControl = new FormControl(false);
 
     reroll: FormControl = new FormControl(false);
 
     attackerForm: FormGroup = new FormGroup({
         diceCount: this.diceCount,
         toHit: this.toHit,
+        autoHits: this.autoHits,
         weakened: this.weakened,
         vulnerable: this.vulnerable,
         panicked: this.panicked,
         sundering: this.sundering,
         critBlow: this.critBlow,
         precision: this.precision,
+        noDefenseRolls: this.precision,
         reroll: this.reroll,
         modifyDamageOnFailedPanictest: this.modifyDamageOnFailedPanictest,
         modifyDefenderMorale: this.modifyDefenderMorale

@@ -17,8 +17,13 @@
         </div>
 
         <div class="u-mb il">
-            <h4>Modify panic-damage</h4>
+            <h4>Panic-damage</h4>
             <app-counter-input [counterRangeMin]="-3" [counterRangeMax]="5" formControlName="modifyDamageOnFailedPanictest"></app-counter-input>
+        </div>
+
+        <div class="u-mb il">
+            <h4>Auto-hits</h4>
+            <app-counter-input [counterRangeMin]="0" [counterRangeMax]="4" formControlName="autoHits"></app-counter-input>
         </div>
 
 
@@ -49,6 +54,7 @@
             <mat-slide-toggle formControlName="sundering">Sundering</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-slide-toggle formControlName="critBlow">Critical Blow</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-slide-toggle formControlName="precision">Precision</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-slide-toggle formControlName="noDefenseRolls">No defense rolls</mat-slide-toggle>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
 </div>

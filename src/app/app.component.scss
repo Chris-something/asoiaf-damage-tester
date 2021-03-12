@@ -1,3 +1,5 @@
+$toke-toggle-size: 36px;
+
 html,
 * {
     font-family: "Palatino", "Georgia", serif;
@@ -83,6 +85,8 @@ h4 {
 /**
  *   Token Toggles
  */
+
+
 .token-toggle {
     display: inline-block;
     margin: 0 10px;
@@ -93,8 +97,8 @@ h4 {
 
 .token-toggle-wrapper {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: $toke-toggle-size;
+    height: $toke-toggle-size;
     border-radius: 25px;
     border: 1px solid;
     background: #000;

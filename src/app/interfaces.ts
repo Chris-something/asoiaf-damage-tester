@@ -14,6 +14,7 @@ export interface IDefender {
 export interface IAttacker {
   diceCount: number;
   toHit: number;
+  autoHits: number;
   modifyDamageOnFailedPanictest: number;
   modifyDefenderMorale: number;
   reroll: boolean;
@@ -22,6 +23,6 @@ export interface IAttacker {
   panicked: boolean;
   sundering: boolean;
   critBlow: boolean;
-  // vicious: boolean;
   precision: boolean;
+  noDefenseRolls: boolean;
 }
