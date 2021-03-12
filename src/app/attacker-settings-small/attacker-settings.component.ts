@@ -38,7 +38,7 @@ export class AttackerSettingsSmallComponent implements OnInit {
         sundering: this.sundering,
         critBlow: this.critBlow,
         precision: this.precision,
-        noDefenseRolls: this.precision,
+        noDefenseRolls: this.noDefenseRolls,
         reroll: this.reroll,
         modifyDamageOnFailedPanictest: this.modifyDamageOnFailedPanictest,
         modifyDefenderPanicTest: this.modifyDefenderPanicTest
