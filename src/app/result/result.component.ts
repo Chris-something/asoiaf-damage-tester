@@ -24,7 +24,7 @@ export class ResultComponent implements OnInit {
     attacksWithZeroWounds$: Observable<number>;
     panicTestsFailed$: Observable<number>;
     maxWounds$: Observable<number>;
-    whipes$: Observable<number>;
+    wipes$: Observable<number>;
 
     distribution$: Observable<{ wounds: number; count: number }[]>;
     maxDistribution$: Observable<number>;
@@ -35,7 +35,7 @@ export class ResultComponent implements OnInit {
         this.iteration$ = this.iterate();
         this.wounds$ = this.avgWounds();
         this.maxWounds$ = this.maxWounds();
-        this.whipes$ = this.maxWoundsProp();
+        this.wipes$ = this.maxWoundsProp();
         this.attacksWithZeroWounds$ = this.attacksWithZeroWounds();
         this.panicTestsFailed$ = this.panicTestsFailed();
         this.distribution$ = this.getDistribution();
