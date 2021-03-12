@@ -1,3 +1,2 @@
-# angular-ivy-m5ltak
+# Song of Ice and Fire TMG - Damage tester
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-m5ltak)
