@@ -12,6 +12,7 @@ export interface IDefender {
 }
 
 export interface IAttacker {
+  pointCost: number;
   diceCount: number;
   toHit: number;
   autoHits: number;

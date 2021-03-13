@@ -13,6 +13,7 @@
         [maxDistributionX]="histogrammService.combinedMaxForX$ | async"
     ></app-histogramm>
     <div class="result__details">
+        <h2 *ngIf="(woundsPerPoint$ | async) > 0">Wounds per point: {{ woundsPerPoint$ | async | number: '1.0-2' }}</h2>
         <h2>Panic tests failed: {{ panicTestsFailed$ | async | number: '1.0-2' }}%</h2>
         <h3>Zero wounds: {{ attacksWithZeroWounds$ | async | number: '1.0-2' }}%</h3>
         <h3>Max wounds: {{ maxWounds$ | async }}</h3>

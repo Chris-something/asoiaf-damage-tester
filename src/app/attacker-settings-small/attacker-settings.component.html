@@ -1,6 +1,21 @@
 <div [formGroup]="attackerForm">
     <div class="box">
-        <ng-content></ng-content>
+        <h2>
+            <ng-content></ng-content>
+            <small [style.opacity]="pointCost.value > 0 ? 1 : .2">
+                Unit costs:&nbsp;
+            </small>
+            <span class="il" [style.opacity]="pointCost.value > 0 ? 1 : .2">
+
+                <app-counter-input
+                        [small]="true"
+                        [counterRangeMin]="0"
+                        [counterRangeMax]="13"
+                        formControlName="pointCost"
+                ></app-counter-input>
+            </span>
+        </h2>
+
 
         <div class="il u-mb">
             <h4>Dice</h4>

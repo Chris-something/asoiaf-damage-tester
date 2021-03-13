@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { debounceTime, filter, map, share, switchMap } from 'rxjs/operators';
 import { HistogrammService } from '../histogramm.service';
-import {IAttacker, IDefender, IRes} from '../interfaces';
+import { IAttacker, IDefender, IRes } from '../interfaces';
 
 @Component({
     selector: 'app-result',
@@ -27,6 +27,7 @@ export class ResultComponent implements OnInit {
 
     distribution$: Observable<{ wounds: number; count: number }[]>;
     maxDistribution$: Observable<number>;
+    woundsPerPoint$: Observable<number>;
 
     constructor(private histogrammService: HistogrammService) {}
 
@@ -39,24 +40,21 @@ export class ResultComponent implements OnInit {
         this.panicTestsFailed$ = this.panicTestsFailed();
         this.distribution$ = this.getDistribution();
         this.maxDistribution$ = this.getDistributionMax();
-
+        this.woundsPerPoint$ = this.getWoundsPerPoint();
         this.maxDistribution$.subscribe((m) => this.maxY$.next(m));
         this.distribution$.subscribe((d) => this.maxX$.next(d.length));
-
     }
 
     iterate(): Observable<IRes[]> {
         let worker;
         if (typeof Worker !== 'undefined') {
-            worker = new Worker('../app.worker', {type: 'module'});
-        }
-        else {
+            worker = new Worker('../app.worker', { type: 'module' });
+        } else {
             alert('Your Browser isn´t supporting Web-Workers');
         }
         return combineLatest([this.attacker$.pipe(filter((_) => !!_)), this.defender$.pipe(filter((_) => !!_))]).pipe(
             debounceTime(300),
             switchMap(([attacker, defender]) => {
-
                 const subject: Subject<IRes[]> = new Subject<IRes[]>();
 
                 if (worker) {
@@ -71,6 +69,14 @@ export class ResultComponent implements OnInit {
         );
     }
 
+    private getWoundsPerPoint() {
+        return combineLatest([this.attacker$.pipe(filter((_) => !!_)), this.wounds$]).pipe(
+            map(([attacker, wounds]) => {
+                return attacker.pointCost > 0 ? wounds / attacker.pointCost : 0;
+            })
+        );
+    }
+
     private getMax(arr) {
         let len = arr.length;
         let max = -Infinity;
@@ -79,10 +85,6 @@ export class ResultComponent implements OnInit {
             max = arr[len] > max ? arr[len] : max;
         }
         return max;
-    }
-
-    trackByWound(index, item) {
-        return item.wounds;
     }
 
     getDistributionMax() {

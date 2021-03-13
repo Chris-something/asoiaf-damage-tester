@@ -5,7 +5,7 @@
     </div>
 
     <div class="p-v">
-        <h2 style="margin: 0">
+        <h2 >
             Defender
             <small style="font-size: 0.6em">(Tokens are applied via attack-options)</small>
         </h2>
@@ -15,10 +15,10 @@
     <hr />
 
     <div [ngClass]="{ combined: combineView }">
-        <div style="display: inline-block; width: 50%">
+        <div style="display: inline-block; vertical-align: top; width: 50%">
             <div class="p attacker-a">
                 <app-attacker-settings-small [attackerSubject$]="attackerSubject1$">
-                    <h2 style="margin: 0">Attack option 1</h2>
+                    Attack option 1
                 </app-attacker-settings-small>
                 <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
                     <app-result
@@ -30,10 +30,10 @@
                 </div>
             </div>
         </div>
-        <div style="display: inline-block; width: 50%">
+        <div style="display: inline-block; vertical-align: top; width: 50%">
             <div class="p attacker-b">
                 <app-attacker-settings-small [attackerSubject$]="attackerSubject2$">
-                    <h2 style="margin: 0">Attack option 2</h2>
+                    Attack option 2
                 </app-attacker-settings-small>
                 <div *ngIf="defenderSubject$.getValue() && attackerSubject1$.getValue()">
                     <app-result

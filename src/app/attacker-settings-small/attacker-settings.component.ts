@@ -17,6 +17,8 @@ export class AttackerSettingsSmallComponent implements OnInit {
     modifyDefenderPanicTest: FormControl = new FormControl(0);
     autoHits: FormControl = new FormControl(0);
 
+    noDefenseRolls: FormControl = new FormControl(false);
+
     weakened: FormControl = new FormControl(false);
     vulnerable: FormControl = new FormControl(false);
     panicked: FormControl = new FormControl(false);
@@ -24,7 +26,9 @@ export class AttackerSettingsSmallComponent implements OnInit {
     sundering: FormControl = new FormControl(false);
     critBlow: FormControl = new FormControl(false);
     precision: FormControl = new FormControl(false);
-    noDefenseRolls: FormControl = new FormControl(false);
+    pointCost: FormControl = new FormControl(0);
+
+
 
     reroll: FormControl = new FormControl(false);
 
@@ -41,7 +45,8 @@ export class AttackerSettingsSmallComponent implements OnInit {
         noDefenseRolls: this.noDefenseRolls,
         reroll: this.reroll,
         modifyDamageOnFailedPanictest: this.modifyDamageOnFailedPanictest,
-        modifyDefenderPanicTest: this.modifyDefenderPanicTest
+        modifyDefenderPanicTest: this.modifyDefenderPanicTest,
+        pointCost: this.pointCost,
     });
 
     @Input() attackerSubject$: Subject<IAttacker>;

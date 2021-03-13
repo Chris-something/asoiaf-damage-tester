@@ -19,7 +19,7 @@ export function createCounterRangeValidator(maxValue, minValue) {
     selector: 'app-counter-input',
     styleUrls: ['./counter-input.scss'],
     template: `
-        <div class="counter-input">
+        <div class="counter-input" [ngClass]="{'counter-input--small': small}">
             <button class="counter-input__button" (click)="decrease()">-</button><span class="counter-input__value"> {{ counterValue }}</span>
             <button class="counter-input__button" (click)="increase()">+</button>
         </div>
@@ -36,6 +36,7 @@ export class CounterInputComponent implements ControlValueAccessor, OnChanges {
     @Input('counterValue') _counterValue = 0;
     @Input() counterRangeMax;
     @Input() counterRangeMin;
+    @Input() small = false;
 
     get counterValue() {
         return this._counterValue;
