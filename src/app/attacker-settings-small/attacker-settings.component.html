@@ -1,8 +1,8 @@
 <div [formGroup]="attackerForm">
     <div class="box">
         <h2>
-            <ng-content></ng-content>
-            <small [style.opacity]="pointCost.value > 0 ? 1 : .2">
+            <ng-content></ng-content>&nbsp;
+            <small [style.opacity]="pointCost.value > 0 ? 1 : .3">
                 Unit costs:&nbsp;
             </small>
             <span class="il" [style.opacity]="pointCost.value > 0 ? 1 : .2">
