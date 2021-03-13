@@ -10,7 +10,7 @@ addEventListener('message', ({data}) => {
 });
 
 const successfulDefended = (sequence: number[], target): number => {
-  return sequence.filter((r) => r >= target).length;
+  return sequence.filter((r) => r >= target || r === 6).length;
 }
 
 const  precisionWounds = (sequence: number[], attacker: IAttacker): number => {
