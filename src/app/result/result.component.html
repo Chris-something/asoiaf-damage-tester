@@ -16,6 +16,6 @@
         <h2>Panic tests failed: {{ panicTestsFailed$ | async | number: '1.0-2' }}%</h2>
         <h3>Zero wounds: {{ attacksWithZeroWounds$ | async | number: '1.0-2' }}%</h3>
         <h3>Max wounds: {{ maxWounds$ | async }}</h3>
-        <h3>Wipes (12 wounds min): {{ wipes$ | async | number: '1.0-5' }}%</h3>
+        <h3>Wipe-Chance (12 wounds min): {{ wipes$ | async | number: '1.0-5' }}%</h3>
     </div>
 </div>
