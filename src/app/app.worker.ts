@@ -65,7 +65,7 @@ const getWounds = (attacker: IAttacker, defender: IDefender): IRes => {
   const _precisionWounds = precisionWounds(attackDice, attacker); // precision
 
   let defDice = rollSequenceD6(_toDefend); // roll def
-  const defence = attacker.sundering ? (defender.def +  (defender.def< 6 ? 1 : 0)) : defender.def; // sundering
+   const defence = attacker.sundering ? (defender.def +  (defender.def< 6 ? 1 : 0)) : defender.def; // sundering
   defDice = attacker.vulnerable ? reroll(defDice, defence, false) : defDice; // vulnerable
   const successfullyDefended = !attacker.noDefenseRolls ? successfulDefended(defDice, defence) : 0;
   const totalWounds = _toDefend - successfullyDefended + _precisionWounds; // wounds from attack
