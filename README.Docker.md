@@ -31,4 +31,4 @@ Login to the ACR using
 Tag the image first
 - docker tag asoiafdmg:latest asoiafdmgcr.azurecr.io/asoiafdmg
 Push the image to ACR from docker 
-- docker push asoiafdmgcr.azurecr.io/asoaifdmg
+- docker push asoiafdmgcr.azurecr.io/asoiafdmg

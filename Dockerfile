@@ -8,14 +8,18 @@
 
 ARG NODE_VERSION=12.11.0
 
-FROM node:${NODE_VERSION}-alpine
+FROM node:${NODE_VERSION}-alpine AS builder
 
-RUN mkdir -p /opt/app
-WORKDIR /opt/app
-COPY ./ .
+WORKDIR /usr/src/app
+
+COPY package.json package-lock.json ./
+
 RUN npm install
-RUN npm install -g @angular/cli@11.2.19
-RUN npm build
-EXPOSE 80
-CMD ["npm", "start"]
-# CMD [ "npm", "start"]
+
+COPY . .
+
+RUN npm run build --prod
+
+FROM nginx:1.15.8-alpine
+
+COPY --from=builder /usr/src/app/dist/ /usr/share/nginx/html
