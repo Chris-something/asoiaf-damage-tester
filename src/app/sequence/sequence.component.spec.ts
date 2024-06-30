@@ -8,8 +8,9 @@ describe('SequenceComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [SequenceComponent],
-        }).compileComponents();
+    declarations: [SequenceComponent],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     });
 
     beforeEach(() => {
