@@ -48,7 +48,7 @@ export class ResultComponent implements OnInit {
     iterate(): Observable<IRes[]> {
         let worker;
         if (typeof Worker !== 'undefined') {
-            worker = new Worker('../app.worker', { type: 'module' });
+            worker = new Worker(new URL('../app.worker', import.meta.url), { type: 'module' });
         } else {
             alert('Your Browser isn´t supporting Web-Workers');
         }
