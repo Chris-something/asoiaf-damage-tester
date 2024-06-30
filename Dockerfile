@@ -6,7 +6,7 @@
 
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
-ARG NODE_VERSION=12.11.0
+ARG NODE_VERSION=12.22.12
 
 FROM node:${NODE_VERSION}-alpine AS builder
 
@@ -20,6 +20,6 @@ COPY . .
 
 RUN npm run build --prod
 
-FROM nginx:1.15.8-alpine
+FROM nginx:1.27.0-alpine
 
 COPY --from=builder /usr/src/app/dist/ /usr/share/nginx/html
