@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { startWith } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import {IAttacker} from "../interfaces";
@@ -11,28 +11,28 @@ import {IAttacker} from "../interfaces";
     encapsulation: ViewEncapsulation.None,
 })
 export class AttackerSettingsSmallComponent implements OnInit {
-    diceCount: FormControl = new FormControl(7);
-    toHit: FormControl = new FormControl(4);
-    modifyDamageOnFailedPanictest: FormControl = new FormControl(0);
-    modifyDefenderPanicTest: FormControl = new FormControl(0);
-    autoHits: FormControl = new FormControl(0);
+    diceCount: UntypedFormControl = new UntypedFormControl(7);
+    toHit: UntypedFormControl = new UntypedFormControl(4);
+    modifyDamageOnFailedPanictest: UntypedFormControl = new UntypedFormControl(0);
+    modifyDefenderPanicTest: UntypedFormControl = new UntypedFormControl(0);
+    autoHits: UntypedFormControl = new UntypedFormControl(0);
 
-    noDefenseRolls: FormControl = new FormControl(false);
+    noDefenseRolls: UntypedFormControl = new UntypedFormControl(false);
 
-    weakened: FormControl = new FormControl(false);
-    vulnerable: FormControl = new FormControl(false);
-    panicked: FormControl = new FormControl(false);
+    weakened: UntypedFormControl = new UntypedFormControl(false);
+    vulnerable: UntypedFormControl = new UntypedFormControl(false);
+    panicked: UntypedFormControl = new UntypedFormControl(false);
 
-    sundering: FormControl = new FormControl(false);
-    critBlow: FormControl = new FormControl(false);
-    precision: FormControl = new FormControl(false);
-    pointCost: FormControl = new FormControl(0);
+    sundering: UntypedFormControl = new UntypedFormControl(false);
+    critBlow: UntypedFormControl = new UntypedFormControl(false);
+    precision: UntypedFormControl = new UntypedFormControl(false);
+    pointCost: UntypedFormControl = new UntypedFormControl(0);
 
 
 
-    reroll: FormControl = new FormControl(false);
+    reroll: UntypedFormControl = new UntypedFormControl(false);
 
-    attackerForm: FormGroup = new FormGroup({
+    attackerForm: UntypedFormGroup = new UntypedFormGroup({
         diceCount: this.diceCount,
         toHit: this.toHit,
         autoHits: this.autoHits,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { combineLatest, Observable } from 'rxjs';
 
@@ -11,10 +11,10 @@ import { combineLatest, Observable } from 'rxjs';
 export class SequenceComponent implements OnInit {
     constructor() {}
 
-    morale: FormControl = new FormControl(6);
-    extraDamagePerFail: FormControl = new FormControl(0);
-    panicked: FormControl = new FormControl(false);
-    panicForm: FormGroup = new FormGroup({
+    morale: UntypedFormControl = new UntypedFormControl(6);
+    extraDamagePerFail: UntypedFormControl = new UntypedFormControl(0);
+    panicked: UntypedFormControl = new UntypedFormControl(false);
+    panicForm: UntypedFormGroup = new UntypedFormGroup({
         morale: this.morale,
         panicked: this.panicked,
         extraDamagePerFail: this.extraDamagePerFail,

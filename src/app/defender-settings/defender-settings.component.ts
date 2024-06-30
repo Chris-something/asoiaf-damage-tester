@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { startWith } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import {IDefender} from "../interfaces";
@@ -11,10 +11,10 @@ import {IDefender} from "../interfaces";
     encapsulation: ViewEncapsulation.None,
 })
 export class DefenderSettingsComponent implements OnInit {
-    morale: FormControl = new FormControl(6);
-    def: FormControl = new FormControl(4);
+    morale: UntypedFormControl = new UntypedFormControl(6);
+    def: UntypedFormControl = new UntypedFormControl(4);
 
-    defenderForm: FormGroup = new FormGroup({
+    defenderForm: UntypedFormGroup = new UntypedFormGroup({
         morale: this.morale,
         def: this.def,
     });

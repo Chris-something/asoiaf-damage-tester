@@ -1,8 +1,8 @@
 import { Component, forwardRef, Input, OnChanges } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
+import { UntypedFormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 
 export function createCounterRangeValidator(maxValue, minValue) {
-    return (c: FormControl) => {
+    return (c: UntypedFormControl) => {
         let err = {
             rangeError: {
                 given: c.value,
@@ -78,7 +78,7 @@ export class CounterInputComponent implements ControlValueAccessor, OnChanges {
       }
     }
 
-    validate(c: FormControl) {
+    validate(c: UntypedFormControl) {
         return this.validateFn(c);
     }
 }
