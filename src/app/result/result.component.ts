@@ -23,6 +23,7 @@ export class ResultComponent implements OnInit {
     attacksWithZeroWounds$: Observable<number>;
     panicTestsFailed$: Observable<number>;
     maxWounds$: Observable<number>;
+    sixes$: Observable<number>;
     wipes$: Observable<number>;
 
     distribution$: Observable<{ wounds: number; count: number }[]>;
@@ -35,6 +36,7 @@ export class ResultComponent implements OnInit {
         this.iteration$ = this.iterate();
         this.wounds$ = this.avgWounds();
         this.maxWounds$ = this.maxWounds();
+        this.sixes$ = this.sixes();
         this.wipes$ = this.maxWoundsProp();
         this.attacksWithZeroWounds$ = this.attacksWithZeroWounds();
         this.panicTestsFailed$ = this.panicTestsFailed();
@@ -77,7 +79,12 @@ export class ResultComponent implements OnInit {
         );
     }
 
-    private getMax(arr) {
+    private getAverage(arr : number[]) {
+        let average = arr.reduce((a, b) => a + b) / arr.length;
+        return average;
+    }
+
+    private getMax(arr : number[]) {
         let len = arr.length;
         let max = -Infinity;
 
@@ -111,6 +118,16 @@ export class ResultComponent implements OnInit {
                 }, []);
                 // this.maxDistribution = Math.max(...returnThis.map(d => d.count));
                 return returnThis;
+            })
+        );
+    }
+
+    sixes(): Observable<number> {
+        return this.iteration$.pipe(
+            map((results) => {
+                const flat = results.map((r) => r.sixes);
+                // return this.getMax(flat);
+                 return this.getAverage(flat);
             })
         );
     }

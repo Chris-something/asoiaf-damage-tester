@@ -31,6 +31,7 @@ export class AttackerSettingsSmallComponent implements OnInit {
 
 
     reroll: UntypedFormControl = new UntypedFormControl(false);
+    fish: UntypedFormControl = new UntypedFormControl(false);
 
     attackerForm: UntypedFormGroup = new UntypedFormGroup({
         diceCount: this.diceCount,
@@ -44,6 +45,7 @@ export class AttackerSettingsSmallComponent implements OnInit {
         precision: this.precision,
         noDefenseRolls: this.noDefenseRolls,
         reroll: this.reroll,
+        fish: this.fish,
         modifyDamageOnFailedPanictest: this.modifyDamageOnFailedPanictest,
         modifyDefenderPanicTest: this.modifyDefenderPanicTest,
         pointCost: this.pointCost,

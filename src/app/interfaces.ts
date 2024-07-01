@@ -4,6 +4,7 @@ export interface IRes {
   damageFromPanic: number;
   damageFromAttackOnly: number;
   totalWounds: number;
+  sixes: number;
 }
 
 export interface IDefender {
@@ -19,6 +20,7 @@ export interface IAttacker {
   modifyDamageOnFailedPanictest: number;
   modifyDefenderPanicTest: number;
   reroll: boolean;
+  fish: boolean;
   weakened: boolean;
   vulnerable: boolean;
   panicked: boolean;

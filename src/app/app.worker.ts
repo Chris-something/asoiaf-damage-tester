@@ -18,6 +18,11 @@ const  precisionWounds = (sequence: number[], attacker: IAttacker): number => {
   return attacker.precision ? sixes : 0;
 }
 
+const  sixesRolled = (sequence: number[], attacker: IAttacker): number => {
+  const sixes = sequence.filter((r) => r === 6).length;
+  return sixes;
+}
+
 const toDefend = (sequence: number[], attacker: IAttacker): number => {
   const hitsWithoutSixes = sequence.filter((r) => r >= attacker.toHit && r !== 6).length;
   const sixes = sequence.filter((r) => r === 6).length;
@@ -58,7 +63,8 @@ const reroll = (sequence: number[], target, misses = true): Array<number> => {
 const getWounds = (attacker: IAttacker, defender: IDefender): IRes => {
   let attackDice = rollSequenceD6(attacker.diceCount);
 
-  attackDice = attacker.reroll ? reroll(attackDice, attacker.toHit) : attackDice; // reroll
+  attackDice = attacker.reroll ? reroll(attackDice, attacker.fish ? 6 : attacker.toHit) : attackDice; // reroll
+  // attackDice = attacker.reroll ? reroll(attackDice, attacker.toHit) : attackDice; // reroll
   attackDice = attacker.weakened ? reroll(attackDice, attacker.toHit, false) : attackDice; // weakened
 
   const _toDefend = toDefend(attackDice, attacker) + attacker.autoHits; // number of hits that need and allow (potentially) def-roll
@@ -73,11 +79,14 @@ const getWounds = (attacker: IAttacker, defender: IDefender): IRes => {
   const panicDamageTheoretically = getPanicDamage(defender, attacker);
   const testFailed = panicDamageTheoretically > 0;
   const panicDamageReal = testFailed && totalWounds ? panicDamageTheoretically : 0;
+  const sixes = sixesRolled(attackDice, attacker); 
+
   return {
     failedPanicTest: testFailed,
     damageFromAttackOnly: totalWounds,
     damageFromPanic: panicDamageReal,
     totalWounds: totalWounds + panicDamageReal,
+    sixes: sixes
   };
 }
 
