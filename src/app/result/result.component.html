@@ -18,6 +18,7 @@
         <h3>Zero wounds: {{ attacksWithZeroWounds$ | async | number: '1.0-2' }}%</h3>
         <h3>Max wounds: {{ maxWounds$ | async }}</h3>
         <h3>Sixes: {{ sixes$ | async }}</h3>
-        <h3>Wipe-Chance (12 wounds min): {{ wipes$ | async | number: '1.0-5' }}%</h3>
+        <h3>Successes: {{ successes$ | async }}</h3>
+        <h3>Wipe-Chance ({{ (defender$ | async)?.defenderWounds  }} wounds min): {{ wipes$ | async | async | number: '1.0-5' }}%</h3>
     </div>
 </div>

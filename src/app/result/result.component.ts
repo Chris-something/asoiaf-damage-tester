@@ -20,11 +20,13 @@ export class ResultComponent implements OnInit {
 
     iteration$: Observable<IRes[]>;
     wounds$: Observable<number>;
+    defenderWounds$: Observable<number>;
     attacksWithZeroWounds$: Observable<number>;
     panicTestsFailed$: Observable<number>;
     maxWounds$: Observable<number>;
     sixes$: Observable<number>;
-    wipes$: Observable<number>;
+    successes$: Observable<number>;
+    wipes$: Observable<Observable<number>>;
 
     distribution$: Observable<{ wounds: number; count: number }[]>;
     maxDistribution$: Observable<number>;
@@ -34,9 +36,11 @@ export class ResultComponent implements OnInit {
 
     ngOnInit(): void {
         this.iteration$ = this.iterate();
+        this.defenderWounds$ = this.defenderWounds();
         this.wounds$ = this.avgWounds();
         this.maxWounds$ = this.maxWounds();
         this.sixes$ = this.sixes();
+        this.successes$ = this.successes();
         this.wipes$ = this.maxWoundsProp();
         this.attacksWithZeroWounds$ = this.attacksWithZeroWounds();
         this.panicTestsFailed$ = this.panicTestsFailed();
@@ -122,11 +126,24 @@ export class ResultComponent implements OnInit {
         );
     }
 
+    defenderWounds(): Observable<number> {
+        // return this.defender$.subscribe(x => x.wounds);
+        return this.defender$.pipe(map((def) => {return def.defenderWounds}));
+    }
+
     sixes(): Observable<number> {
         return this.iteration$.pipe(
             map((results) => {
                 const flat = results.map((r) => r.sixes);
-                // return this.getMax(flat);
+                 return this.getAverage(flat);
+            })
+        );
+    }
+
+    successes(): Observable<number> {
+        return this.iteration$.pipe(
+            map((results) => {
+                const flat = results.map((r) => r.successes);
                  return this.getAverage(flat);
             })
         );
@@ -141,11 +158,13 @@ export class ResultComponent implements OnInit {
         );
     }
 
-    maxWoundsProp(): Observable<number> {
+    maxWoundsProp(): Observable<Observable<number>> {
         return this.iteration$.pipe(
             map((results) => {
-                const sum = results.filter((r) => r.totalWounds >= 12).length;
-                return (sum / this.amountOfIterations) * 100;
+                return this.defender$.pipe(map((r2) => {
+                    const sum = results.filter((r) => r.totalWounds >= r2.defenderWounds).length;
+                    return (sum / this.amountOfIterations) * 100;
+                }))
             })
         );
     }
@@ -177,95 +196,7 @@ export class ResultComponent implements OnInit {
             })
         );
     }
-    // getWounds(attacker: IAttacker, defender: IDefender): IRes {
-    //     let attackDice = this.rollSequenceD6(attacker.diceCount);
-    //
-    //     attackDice = attacker.reroll ? this.reroll(attackDice, attacker.toHit) : attackDice; // reroll
-    //     attackDice = attacker.weakened ? this.reroll(attackDice, attacker.toHit, false) : attackDice; // weakened
-    //
-    //     const toDefend = this.toDefend(attackDice, attacker);
-    //     const precisionWounds = this.precisionWounds(attackDice, attacker);
-    //
-    //     let defDice = this.rollSequenceD6(toDefend);
-    //     const defence = attacker.sundering ? defender.def + 1 : defender.def;
-    //     defDice = attacker.vulnerable ? this.reroll(defDice, defence, false) : defDice;
-    //     const successfullyDefended = this.successfulDefended(defDice, defence);
-    //
-    //     const totalWounds = toDefend - successfullyDefended + precisionWounds;
-    //     const panicDamageTheoretically = this.getPanicDamage(defender, attacker);
-    //     const testFailed = panicDamageTheoretically > 0;
-    //     const panicDamageReal = testFailed && totalWounds ? panicDamageTheoretically : 0;
-    //     return {
-    //         failedPanicTest: testFailed,
-    //         damageFromAttackOnly: totalWounds,
-    //         damageFromPanic: panicDamageReal,
-    //         totalWounds: totalWounds + panicDamageReal,
-    //     };
-    // }
-
-    // getPanicDamage(defender: IDefender, attacker: IAttacker): number {
-    //     const targetMorale = attacker.vicious ? Math.min(defender.morale + 2, 12) : defender.morale;
-    //     let res1 = this.d(6);
-    //     let res2 = this.d(6);
-    //     let pDamag = this.d(3);
-    //     if (attacker.panicked && res1 + res2 >= targetMorale) {
-    //         if (targetMorale >= 8) {
-    //             res1 = res1 >= 4 ? this.d(6) : res1;
-    //             res2 = res2 >= 4 ? this.d(6) : res2;
-    //         } else {
-    //             res1 = res1 > targetMorale / 2 ? this.d(6) : res1;
-    //             res2 = res2 > targetMorale / 2 ? this.d(6) : res2;
-    //         }
-    //
-    //         pDamag = pDamag < 2 ? this.d(3) : pDamag;
-    //     }
-    //     const tototalDamage = Math.max(pDamag + attacker.extradDamageOnFailedPanictest, 0);
-    //     return res1 + res2 < targetMorale ? tototalDamage : 0;
-    // }
-
-    // private successfulDefended(sequence: number[], target): number {
-    //     return sequence.filter((r) => r >= target).length;
-    // }
-
-    // private precisionWounds(sequence: number[], attacker: IAttacker): number {
-    //     const sixes = sequence.filter((r) => r === 6).length;
-    //     return attacker.precision ? sixes : 0;
-    // }
-
-    // private toDefend(sequence: number[], attacker: IAttacker): number {
-    //     const hitsWithoutSixes = sequence.filter((r) => r >= attacker.toHit && r !== 6).length;
-    //     const sixes = sequence.filter((r) => r === 6).length;
-    //     if (!attacker.critBlow && attacker.precision) {
-    //         return hitsWithoutSixes;
-    //     } else if (!attacker.critBlow || (attacker.critBlow && attacker.precision)) {
-    //         return hitsWithoutSixes + sixes;
-    //     } else {
-    //         return hitsWithoutSixes + sixes * 2;
-    //     }
-    // }
-    //
-    // private reroll(sequence: number[], target, misses = true): Array<number> {
-    //     return sequence.map((orig) => {
-    //         let d = orig;
-    //         if (misses && orig < target) {
-    //             d = this.d(6);
-    //         }
-    //         if (!misses && orig >= target) {
-    //             d = this.d(6);
-    //         }
-    //         return d;
-    //     });
-    // }
-    //
-    // private rollSequenceD6(length: number): Array<number> {
-    //     return this.arrayFromLength(length).map((_) => this.d(6));
-    // }
-
     private arrayFromLength(length: number): Array<number> {
         return Array.from(Array(length).keys());
     }
-
-    // private d(sides: number): number {
-    //     return 1 + Math.floor(Math.random() * sides);
-    // }
 }

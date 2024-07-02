@@ -5,11 +5,13 @@ export interface IRes {
   damageFromAttackOnly: number;
   totalWounds: number;
   sixes: number;
+  successes: number;
 }
 
 export interface IDefender {
   def: number;
   morale: number;
+  defenderWounds: number;
 }
 
 export interface IAttacker {

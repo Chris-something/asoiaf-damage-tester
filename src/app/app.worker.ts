@@ -35,6 +35,10 @@ const toDefend = (sequence: number[], attacker: IAttacker): number => {
   }
 }
 
+const successes = (sequence: number[], attacker: IAttacker): number => {
+  return sequence.filter((r) => r >= attacker.toHit ).length;
+}
+
 const rollSequenceD6 = (length: number): Array<number> => {
   return arrayFromLength(length).map((_) => d(6));
 }
@@ -80,13 +84,15 @@ const getWounds = (attacker: IAttacker, defender: IDefender): IRes => {
   const testFailed = panicDamageTheoretically > 0;
   const panicDamageReal = testFailed && totalWounds ? panicDamageTheoretically : 0;
   const sixes = sixesRolled(attackDice, attacker); 
+  const s = successes(attackDice, attacker); 
 
   return {
     failedPanicTest: testFailed,
     damageFromAttackOnly: totalWounds,
     damageFromPanic: panicDamageReal,
     totalWounds: totalWounds + panicDamageReal,
-    sixes: sixes
+    sixes: sixes,
+    successes: s
   };
 }
 
